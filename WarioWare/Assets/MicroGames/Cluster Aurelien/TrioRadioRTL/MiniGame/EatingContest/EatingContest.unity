@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -152,16 +152,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chomp: 0
-  numberOfChomps: 10
+  numberOfChomps: 5
   numberOfPlates: 5
   numberOfRottenPlates: 2
   rottenPlate: 0
-  rottenPlatesEasy: 0
-  rottenPlatesMedium: 0
-  rottenPlatesHard: 0
-  numberOfPlatesEasy: 0
-  numberOfPlatesMedium: 0
-  numberOfPlatesHard: 0
+  rottenPlatesEasy: 1
+  rottenPlatesMedium: 2
+  rottenPlatesHard: 3
+  numberOfPlatesEasy: 5
+  numberOfPlatesMedium: 5
+  numberOfPlatesHard: 5
 --- !u!4 &25077194
 Transform:
   m_ObjectHideFlags: 0
@@ -661,7 +661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1028936199
 SpriteRenderer:
   m_ObjectHideFlags: 0

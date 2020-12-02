@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idCard: {fileID: 11400000, guid: e625e3c618b50844dba3cdc9222cbb82, type: 2}
-  bpm: 140
+  bpm: 60
   currentDifficulty: 0
   panel: {fileID: 137554992}
   resultText: {fileID: 224949527}
@@ -764,7 +764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1312191352
 Transform:
   m_ObjectHideFlags: 0
