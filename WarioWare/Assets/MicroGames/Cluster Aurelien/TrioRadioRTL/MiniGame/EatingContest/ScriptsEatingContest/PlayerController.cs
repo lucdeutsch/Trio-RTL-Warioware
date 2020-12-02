@@ -21,12 +21,32 @@ namespace TrioRadioRTL
             public int numberOfRottenPlates; //the number of rotten plates the player will need to avoid
 
             public bool rottenPlate = false; //the state of the current plate
+            [Header("Difficulty")]
+            public int rottenPlatesEasy;
+            public int rottenPlatesMedium;
+            public int rottenPlatesHard;
+            public int numberOfPlatesEasy;
+            public int numberOfPlatesMedium;
+            public int numberOfPlatesHard;
 
-           
             // Start is called before the first frame update
             void Start()
             {
-                
+                if (Manager.Instance.currentDifficulty == Manager.difficulty.EASY)
+                {
+                    numberOfPlates = numberOfPlatesEasy;
+                    numberOfRottenPlates = rottenPlatesEasy;
+                }
+                else if (Manager.Instance.currentDifficulty == Manager.difficulty.MEDIUM)
+                {
+                    numberOfPlates = numberOfPlatesMedium;
+                    numberOfRottenPlates = rottenPlatesMedium;
+                }
+                else if (Manager.Instance.currentDifficulty == Manager.difficulty.HARD)
+                {
+                    numberOfPlates = numberOfPlatesHard;
+                    numberOfRottenPlates = rottenPlatesHard;
+                }
             }
 
             // Update is called once per frame
