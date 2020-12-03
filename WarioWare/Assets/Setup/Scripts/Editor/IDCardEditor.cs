@@ -23,28 +23,34 @@ public class IDCardEditor : Editor {
         switch (idCard.cluster)
         {
             case Cluster.Theodore:
+				trioTheo = (TrioTheodore) idCard.indexEnum;
 				trioTheo = (TrioTheodore)EditorGUILayout.EnumPopup("Trio ", trioTheo);
+				idCard.indexEnum =(int) trioTheo;
 				idCard.trio = trioTheo.ToString();
 				break;
             case Cluster.Aurelien:
+				trioAurel = (TrioAurelien)idCard.indexEnum;
 				trioAurel = (TrioAurelien)EditorGUILayout.EnumPopup("Trio ", trioAurel);
-				idCard.trio = trioTheo.ToString();
+				idCard.indexEnum = (int)trioAurel;
+				idCard.trio = trioAurel.ToString();
 				break;
             case Cluster.Thibault:
+				trioThibault = (TrioThibault)idCard.indexEnum;
 				trioThibault = (TrioThibault)EditorGUILayout.EnumPopup("Trio ", trioThibault);
-				idCard.trio = trioTheo.ToString();
+				idCard.indexEnum = (int)trioThibault;
+				idCard.trio = trioThibault.ToString();
 				break;
             default:
                 break;
         }
 
-		idCard.aptiqueChal = (ChallengeAptique)EditorGUILayout.EnumPopup("Challenge Aptique ", idCard.aptiqueChal);
+		idCard.haptiqueChal = (ChallengeHaptique)EditorGUILayout.EnumPopup("Challenge Haptique ", idCard.haptiqueChal);
 		idCard.inputChal = (ChallengeInput)EditorGUILayout.EnumPopup("Challenge Input ", idCard.inputChal);
 		
 		EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(idCard.microGameScene)));
 
-		GUILayout.Space(830);
-
+		EditorGUILayout.Space(20);
+		if(idCard.microGameScene.BuildIndex == -1)
 		if (GUILayout.Button("Add To Build")) { AddScene(idCard.microGameScene.EditorSceneAsset); }
 
 		EditorUtility.SetDirty(idCard);
