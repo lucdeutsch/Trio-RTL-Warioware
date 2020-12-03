@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -972,6 +972,7 @@ MonoBehaviour:
   bpm: 60
   currentDifficulty: 0
   timer: 0
+  currentTime: 0
   player: {fileID: 472217540}
   ennemy: {fileID: 8115943555535704992, guid: 8cc0e224a3aef984c99a8f02099b4e2e, type: 3}
   rightPosition: {x: 3.5, y: 18, z: 0}
@@ -980,7 +981,7 @@ MonoBehaviour:
   resultText: {fileID: 169655129}
   bpmText: {fileID: 1055891970}
   timerUI: {fileID: 1428133427}
-  ticNumber: {fileID: 1361720925}
+  tickNumber: {fileID: 0}
   input: {fileID: 1330898506}
 --- !u!4 &948930884
 Transform:
@@ -1993,8 +1994,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0
+  m_WholeNumbers: 1
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2229,6 +2230,7 @@ MonoBehaviour:
   bpm: 60
   currentDifficulty: 0
   timer: 0
+  currentTime: 0
   globalMusic:
   - {fileID: 1314369783}
   - {fileID: 2068924902}

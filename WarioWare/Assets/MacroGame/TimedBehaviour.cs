@@ -9,7 +9,6 @@ public class TimedBehaviour : MonoBehaviour
    [HideInInspector] public float bpm = 60;
     [HideInInspector] public Manager.Difficulty currentDifficulty = 0;
 
-    private bool isInPlayableScene;
     public double timer;
     public double currentTime;
 
@@ -24,7 +23,6 @@ public class TimedBehaviour : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "TestingScene")
         {
-            isInPlayableScene = true;
             bpm =(float) Manager.Instance.bpm;
             currentDifficulty = Manager.Instance.currentDifficulty;
             currentTime = AudioSettings.dspTime;
@@ -63,10 +61,11 @@ public class TimedBehaviour : MonoBehaviour
         {
             Tick++;
             currentTime = AudioSettings.dspTime;
-            TimedUpdate();            
+            TimedUpdate();
+            Debug.Log(Tick);
         }
     }
-    #endregion
+  
 
     /// <summary>
     /// TimedUdpate is called at each tick. Use this if you want your script to update with rythme.
