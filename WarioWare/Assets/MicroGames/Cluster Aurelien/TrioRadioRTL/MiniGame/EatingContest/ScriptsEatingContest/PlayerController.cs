@@ -32,17 +32,17 @@ namespace TrioRadioRTL
             // Start is called before the first frame update
             void Start()
             {
-                if (Manager.Instance.currentDifficulty == Manager.difficulty.EASY)
+                if (Manager.Instance.currentDifficulty == Manager.Difficulty.EASY)
                 {
                     numberOfPlates = numberOfPlatesEasy;
                     numberOfRottenPlates = rottenPlatesEasy;
                 }
-                else if (Manager.Instance.currentDifficulty == Manager.difficulty.MEDIUM)
+                else if (Manager.Instance.currentDifficulty == Manager.Difficulty.MEDIUM)
                 {
                     numberOfPlates = numberOfPlatesMedium;
                     numberOfRottenPlates = rottenPlatesMedium;
                 }
-                else if (Manager.Instance.currentDifficulty == Manager.difficulty.HARD)
+                else if (Manager.Instance.currentDifficulty == Manager.Difficulty.HARD)
                 {
                     numberOfPlates = numberOfPlatesHard;
                     numberOfRottenPlates = rottenPlatesHard;

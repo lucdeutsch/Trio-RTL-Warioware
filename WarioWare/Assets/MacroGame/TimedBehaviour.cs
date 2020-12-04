@@ -32,30 +32,6 @@ public class TimedBehaviour : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
-        if (isInPlayableScene)
-            UpdatePlayableScene();
-        else
-            UpdateCustomScene();
-    }
-    #region SecuredUpdates
-    /// <summary>
-    /// Update on a custom scene of trio
-    /// </summary>
-    private void UpdateCustomScene()
-    {
-        timer += Time.deltaTime;
-        if (timer >= 60 / bpm)
-        {
-            Tick++;
-            timer = 0;
-            TimedUpdate();            
-        }
-    }
-    /// <summary>
-    /// Update on a scen with manager
-    /// </summary>
-    private void UpdatePlayableScene()
-    {
         timer = AudioSettings.dspTime - currentTime;
         if (timer >= 60 / bpm)
         {
