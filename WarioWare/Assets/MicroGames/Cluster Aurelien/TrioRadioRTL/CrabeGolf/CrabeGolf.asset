@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: CrabeGolf
   m_EditorClassIdentifier: 
   cluster: 1
-  trio: Brigantin
-  aptiqueChal: 0
+  trio: RadioRTL
+  haptiqueChal: 0
   inputChal: 0
+  indexEnum: 1
   microGameScene:
     sceneAsset: {fileID: 102900000, guid: 447cdb5bb911ccc4e94457ef6a5baabd, type: 3}
     required: 1
