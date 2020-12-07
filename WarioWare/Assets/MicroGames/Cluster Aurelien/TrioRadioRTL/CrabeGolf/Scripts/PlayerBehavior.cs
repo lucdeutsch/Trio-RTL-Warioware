@@ -13,16 +13,24 @@ public class PlayerBehavior : MonoBehaviour
     private bool OnPreparation = false;
     private bool CrabIsLock = false;
     private bool Frappe = false;
-
     public GameObject NormalCrab;
+
     private void Update()
     {
-
-        if (Input.GetButtonDown("Préparation"))
+        if (Input.GetButtonDown("A_Button"))
             OnPreparation = true;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
 
-        if (Input.GetButtonUp("Frappe"))
+        if (Input.GetButtonUp("A_Button") && OnPreparation)
+        {
             Frappe = true;
+            OnPreparation = false;
+            Destroy(NormalCrab);
+
+        }
+            
 
     }
 }

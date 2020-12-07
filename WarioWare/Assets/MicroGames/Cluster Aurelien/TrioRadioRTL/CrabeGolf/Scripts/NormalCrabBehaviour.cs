@@ -16,6 +16,7 @@ namespace RadioRTL
 
     void Start()
     {
+     //   Instantiate(gameObject, new Vector3(-8, -3, 0), Quaternion.identity);
         target = new Vector3(8, -3, 0);
         position = gameObject.transform.position;
         speed = 1.0f;
@@ -25,5 +26,6 @@ namespace RadioRTL
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target, step);
+
     }
 }
