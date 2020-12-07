@@ -18,13 +18,9 @@ namespace TrioRadioRTL
 
             [Header("Graphs")]
 
-            public SpriteRenderer plate;
-            public Sprite goodPlateSpriteEmpty;
-            public Sprite goodPlateSprite1;
-            public Sprite goodPlateSprite2;
-            public Sprite goodPlateSprite3;
-            public Sprite goodPlateSprite4;
-            public Sprite goodPlateSprite5;
+            SpriteRenderer plate;
+            //public Sprite goodPlateSpriteEmpty;
+            public List<Sprite> Plates = new List<Sprite>();
             public Sprite rottenPlateSprite;
 
 
@@ -46,10 +42,15 @@ namespace TrioRadioRTL
                 }
                 else
                 {
-                    plate.sprite = goodPlateSpriteEmpty;
+                    ChangeSpriteWithChomps(playerController.chomp, playerController.numberOfChomps);
                 }
                 
                 
+            }
+
+            void ChangeSpriteWithChomps(int chomps, int totalChomps)
+            {
+                plate.sprite = Plates[totalChomps - chomps];
             }
         }
     }
