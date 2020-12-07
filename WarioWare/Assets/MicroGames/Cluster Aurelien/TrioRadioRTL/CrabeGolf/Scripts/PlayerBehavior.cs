@@ -10,27 +10,26 @@ namespace RadioRTL
 }
 public class PlayerBehavior : MonoBehaviour
 {
-    private bool OnPreparation = false;
-    private bool CrabIsLock = false;
-    private bool Frappe = false;
+    public bool StrikeUnlock = false;
     public GameObject NormalCrab;
 
-    private void Update()
+
+    void Start()
     {
+
         if (Input.GetButtonDown("A_Button"))
-            OnPreparation = true;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (Input.GetButtonUp("A_Button") && OnPreparation)
         {
-            Frappe = true;
-            OnPreparation = false;
-            Destroy(NormalCrab);
-
+            StrikeUnlock = true;
+            Frappe();
         }
-            
-
     }
+
+    void Frappe()
+    {
+        if (Input.GetButtonUp("A_Button") && StrikeUnlock)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
