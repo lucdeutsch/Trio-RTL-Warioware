@@ -19,7 +19,12 @@ namespace TrioRadioRTL
             [Header("Graphs")]
 
             public SpriteRenderer plate;
-            public Sprite goodPlateSprite;
+            public Sprite goodPlateSpriteEmpty;
+            public Sprite goodPlateSprite1;
+            public Sprite goodPlateSprite2;
+            public Sprite goodPlateSprite3;
+            public Sprite goodPlateSprite4;
+            public Sprite goodPlateSprite5;
             public Sprite rottenPlateSprite;
 
 
@@ -41,7 +46,7 @@ namespace TrioRadioRTL
                 }
                 else
                 {
-                    plate.sprite = goodPlateSprite;
+                    plate.sprite = goodPlateSpriteEmpty;
                 }
                 
                 
