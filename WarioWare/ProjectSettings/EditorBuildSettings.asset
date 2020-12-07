@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/MicroGames/Cluster Aurelien/TrioRadioRTL/CeremonieDeThe/Scene_CeremonieDeThe.unity
     guid: e2547889b0261ae459c8886febd6b951
   - enabled: 1
-    path: Assets/MicroGames/Cluster Aurelien/TrioRadioRTL/MiniGame/EatingContest/EatingContest.unity
+    path: Assets/MicroGames/Cluster Aurelien/TrioRadioRTL/EatingContest/EatingContest.unity
     guid: 728fb7f41e85dc243b5a628de9e0a50a
   - enabled: 1
     path: Assets/MicroGames/Cluster Aurelien/TrioACommAkuma/PirateGrog/PirateGrogTestScene.unity

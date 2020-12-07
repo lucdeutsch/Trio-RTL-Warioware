@@ -92,7 +92,7 @@ namespace TrioRadioRTL
 
             void NextPlate()//changing the plate once its empty
             {
-                if (Random.Range(0,numberOfRottenPlates+1) != 0)
+                if (Random.Range(0,numberOfRottenPlates) != 0)
                 {
                     rottenPlate = true;
                     numberOfRottenPlates -= 1;
