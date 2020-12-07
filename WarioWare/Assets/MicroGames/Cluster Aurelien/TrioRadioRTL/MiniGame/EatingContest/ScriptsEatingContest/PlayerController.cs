@@ -18,7 +18,7 @@ namespace TrioRadioRTL
             public int chomp; //the number of chomps the player has currently had
             public int numberOfChomps; //the number of chomps required to finish a plate
             public int numberOfPlates; //the number of plates the player need to eat to finish the mini game
-            public int numberOfRottenPlates; //the number of rotten plates the player will need to avoid
+            int numberOfRottenPlates; //the number of rotten plates the player will need to avoid
 
             public bool rottenPlate = false; //the state of the current plate
             [Header("Difficulty")]
@@ -65,11 +65,17 @@ namespace TrioRadioRTL
                         numberOfPlates -= 1;
                         NextPlate(); //Changing Plates
                     }
+                    if (Input.GetKeyDown("a"))
+                    {
+                        chomp = 0;
+                        NextPlate();
+                    }
                 }
                 else if (rottenPlate)//plate is rotten
                 { 
                     if (/*Input.GetButtonDown("X_Button")*/Input.GetKeyDown("a"))
                     {
+
                         NextPlate();
                     }
                     if (/*Input.GetButtonDown("A_Button") */Input.GetKeyDown("e"))

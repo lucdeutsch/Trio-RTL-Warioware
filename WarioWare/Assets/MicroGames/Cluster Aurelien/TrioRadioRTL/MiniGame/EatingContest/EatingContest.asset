@@ -17,7 +17,9 @@ MonoBehaviour:
   haptiqueChal: 0
   inputChal: 0
   indexEnum: 0
+  verbe: Eat!  Press A/E
   microGameScene:
     sceneAsset: {fileID: 102900000, guid: 728fb7f41e85dc243b5a628de9e0a50a, type: 3}
     required: 1
     buildIndex: 3
+  currentDifficulty: 0
