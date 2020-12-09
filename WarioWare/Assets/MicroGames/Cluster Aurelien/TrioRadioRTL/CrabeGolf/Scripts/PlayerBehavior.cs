@@ -28,7 +28,6 @@ public class PlayerBehavior : MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            Debug.Log("Marche");
             strikeUnlock = true;
             gameObject.GetComponent<SpriteRenderer>().sprite = preparation;
         }
@@ -49,12 +48,20 @@ public class PlayerBehavior : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("chibre");
-        if (Input.GetKeyUp("a"))
+        if(Input.GetKeyUp("a"))
         {
-            other.GetComponent<NormalCrabBehaviour>().isShot = true;
+            NormalCrabBehaviour ncb = other.GetComponent<NormalCrabBehaviour>();
+            CrabParrotBehavior cpb = other.GetComponent<CrabParrotBehavior>();
 
+            if(ncb != null)
+            {
+                ncb.isShot = true;
+            }
+            else if (cpb != null)
+            {
+                cpb.isShot = true;
+            }
         }
     }
-
+  
 }

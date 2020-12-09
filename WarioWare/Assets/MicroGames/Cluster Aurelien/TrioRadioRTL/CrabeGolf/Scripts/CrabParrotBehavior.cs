@@ -8,7 +8,7 @@ namespace RadioRTL
     /// Théo Valet
     /// </summary>
 }
-public class NormalCrabBehaviour : MonoBehaviour
+public class CrabParrotBehavior : MonoBehaviour
 {
     private Vector3 target;
     public float speed;
