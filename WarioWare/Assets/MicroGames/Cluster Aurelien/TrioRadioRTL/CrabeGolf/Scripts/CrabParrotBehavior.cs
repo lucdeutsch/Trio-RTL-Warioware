@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Testing;
 
 namespace RadioRTL
 {
@@ -29,6 +30,7 @@ public class CrabParrotBehavior : MonoBehaviour
 
         if (gameObject.transform.position == target)
         {
+            Manager.Instance.Result(false);
             Destroy(gameObject);
         }
 

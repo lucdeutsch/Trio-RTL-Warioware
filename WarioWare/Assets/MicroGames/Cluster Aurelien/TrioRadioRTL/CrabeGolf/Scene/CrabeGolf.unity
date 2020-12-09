@@ -121,6 +121,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &130262407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 130262409}
+  - component: {fileID: 130262408}
+  m_Layer: 0
+  m_Name: DifficultyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &130262408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130262407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76ede72727ebbe43bddcbc8515cce29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bpm: 60
+  currentDifficulty: 0
+  timer: 0
+  currentTime: 0
+  crabParrotBehavior: {fileID: 383649019946708977, guid: 6a794288744a62641997d292b0d230cf,
+    type: 3}
+  normalCrabBehaviour: {fileID: 2920304919071724466, guid: ede4acfa78b6939428adb2307d7ad118,
+    type: 3}
+  easySpeed: 2
+  mediumSpeed: 4
+  hardSpeed: 6
+  easyCP: 1
+  mediumCP: 2
+  hardCP: 2
+--- !u!4 &130262409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130262407}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7167443, y: -2.8894827, z: -3.5161245}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &588848750
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +578,9 @@ MonoBehaviour:
   crab: {fileID: 2920304919071724460, guid: ede4acfa78b6939428adb2307d7ad118, type: 3}
   crabParrot: {fileID: 383649019946708978, guid: 6a794288744a62641997d292b0d230cf,
     type: 3}
+  numberCP: 2
+  CP: 0
+  difficultyManager: {fileID: 0}
 --- !u!4 &2114269437
 Transform:
   m_ObjectHideFlags: 0

@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Testing;
 
 namespace RadioRTL
 {
     /// <summary>
     /// Théo Valet
     /// </summary>
-namespace CrabeGolf
-    {
+
         public class CrabSpawner : TimedBehaviour
         {
             public GameObject crab;
             public GameObject crabParrot;
+            [Range(0,4)]
+            public int numberCP;
+            public int CP;
+            public DifficultyManager difficultyManager;
+
             public override void Start()
             {
                 base.Start(); //Do not erase this line!
@@ -23,31 +28,128 @@ namespace CrabeGolf
             public override void FixedUpdate()
             {
                 base.FixedUpdate(); //Do not erase this line!
-
+            switch (Manager.Instance.currentDifficulty)
+            {
+                case Manager.Difficulty.EASY:
+                    numberCP = difficultyManager.easyCP;
+                    break;
+                case Manager.Difficulty.MEDIUM:
+                    numberCP = difficultyManager.mediumCP;
+                    break;
+                case Manager.Difficulty.HARD:
+                    numberCP = difficultyManager.hardCP;
+                    break;
+                default:
+                    break;
             }
+
+        }
 
             //TimedUpdate is called once every tick.
             public override void TimedUpdate()
             {
+                int typeCrab;
+
                 if (Tick == 2)
                 {
-                    Instantiate(crab,new Vector3(-8, -3, 0),Quaternion.identity);
+                    if (CP < numberCP)
+                    {                       
+                        typeCrab = Random.Range(0, 2);
+                    }
+                    else
+                    {
+                        typeCrab = 1; 
+                    }
+                    
+                    if (typeCrab == 1)
+                    {
+                        Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity);
+                    }
+                    else if (typeCrab == 0)
+                    {
+                        Instantiate(crabParrot, new Vector3(-8, -3, 0), Quaternion.identity);
+                        CP += 1;
+
+                    }
+                    
                 }
                 if (Tick == 3)
                 {
-                    Instantiate(crabParrot, new Vector3(-8, -3, 0), Quaternion.identity);
+                    if (CP < numberCP)
+                    {
+
+                        typeCrab = Random.Range(0, 2);
+                    }
+                    else
+                    {
+                        typeCrab = 1;
+                    }
+
+                    if (typeCrab == 1)
+                    {
+                        Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity);
+                    }
+                    else if (typeCrab == 0)
+                    {
+                        Instantiate(crabParrot, new Vector3(-8, -3, 0), Quaternion.identity);
+                        CP += 1;
+
+                    }
                 }
+
                 if (Tick == 4)
                 {
-                    Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity);
+                    if(CP < numberCP)
+                    {
+                        typeCrab = Random.Range(0, 2);
+                    }
+                    else
+                    {
+                        typeCrab = 1;
+                    }
+
+                    if (typeCrab == 1)
+                    {
+                        Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity);
+                    }
+                    else if (typeCrab == 0)
+                    {
+                        Instantiate(crabParrot, new Vector3(-8, -3, 0), Quaternion.identity);
+                        CP += 1;
+
+                    }
                 }
+
                 if (Tick == 5)
                 {
-                    Instantiate(crabParrot, new Vector3(-8, -3, 0), Quaternion.identity);
+                    if (CP < numberCP)
+                    {
+
+                        typeCrab = Random.Range(0, 2);
+                    }
+                    else
+                    {
+                        typeCrab = 1;
+                    }
+
+                    if (typeCrab == 1)
+                    {
+                        Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity);
+                    }
+                    else if (typeCrab == 0)
+                    {
+                        Instantiate(crabParrot, new Vector3(-8, -3, 0), Quaternion.identity);
+                        CP += 1;
+
+                    }
+                }
+                if (Tick == 8)
+                {
+                Manager.Instance.Result(true);
                 }
             }
         }
-      }
+
 }
 
 

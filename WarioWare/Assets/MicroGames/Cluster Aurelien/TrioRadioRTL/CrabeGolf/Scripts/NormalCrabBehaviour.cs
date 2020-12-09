@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Testing;
 
 namespace RadioRTL
 {
@@ -28,7 +29,11 @@ public class NormalCrabBehaviour : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target, step);
 
         if (gameObject.transform.position == target)
-        {
+        { 
+            if (!isShot)
+            {
+                Manager.Instance.Result(false);
+            }
             Destroy(gameObject);
         }
 

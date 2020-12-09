@@ -1,0 +1,34 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Testing;
+
+public class DifficultyManager : TimedBehaviour
+{   
+    public CrabParrotBehavior crabParrotBehavior;
+    public NormalCrabBehaviour normalCrabBehaviour;
+    public int easySpeed;
+    public int mediumSpeed;
+    public int hardSpeed;
+    public int easyCP;
+    public int mediumCP;
+    public int hardCP;
+    public override void Start()
+    {
+        switch (currentDifficulty)
+        {
+            case Manager.Difficulty.EASY:
+                //insérer la logique quand le jeu est facile
+                normalCrabBehaviour.speed = easySpeed; 
+                break;
+            case Manager.Difficulty.MEDIUM:
+                //insérer la logique quand le jeu est facile
+                normalCrabBehaviour.speed = mediumSpeed;
+                break;
+            case Manager.Difficulty.HARD:
+                //insérer la logique quand le jeu est facile
+                normalCrabBehaviour.speed = hardSpeed;
+                break;
+        }
+    }
+}
