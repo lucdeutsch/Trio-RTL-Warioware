@@ -158,9 +158,9 @@ MonoBehaviour:
     type: 3}
   normalCrabBehaviour: {fileID: 2920304919071724466, guid: ede4acfa78b6939428adb2307d7ad118,
     type: 3}
-  easySpeed: 2
-  mediumSpeed: 4
-  hardSpeed: 6
+  easySpeed: 3.5
+  mediumSpeed: 7.5
+  hardSpeed: 10.5
   easyCP: 1
   mediumCP: 2
   hardCP: 2
@@ -176,7 +176,88 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &336120873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 336120875}
+  - component: {fileID: 336120874}
+  m_Layer: 0
+  m_Name: Mark Hit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &336120874
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336120873}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 96b0f2994cca4454ca193bdb72c7e203, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.2, y: 1.07}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &336120875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336120873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.57, y: -2.05, z: -4.4817033}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &588848750
 GameObject:
@@ -422,10 +503,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikeUnlock: 0
-  preparation: {fileID: 21300000, guid: 825ffb32f0142694b9a91eb294d53a80, type: 3}
-  frappe: {fileID: 21300000, guid: 1945acbb51032f444b536a3608f09797, type: 3}
-  frappe2: {fileID: 21300000, guid: a4ac96083ef2dcc46a0f6d7f7528f0dd, type: 3}
   animFrappe: 0.5
+  canShoot: 1
+  hit: 0
+  markShot: {fileID: 336120874}
 --- !u!61 &1420726194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -439,7 +520,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6541064, y: 0.1539421}
+  m_Offset: {x: -0.5389907, y: 0.2045232}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.6719793, y: 0.012750453}
@@ -450,7 +531,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42032385, y: 0.42224446}
+  m_Size: {x: 0.65055525, y: 0.5234067}
   m_EdgeRadius: 0
 --- !u!212 &1420726195
 SpriteRenderer:
@@ -533,7 +614,7 @@ Animator:
   m_GameObject: {fileID: 1420726191}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d40d1fdbf28558b45875db91b5109d5c, type: 2}
+  m_Controller: {fileID: 9100000, guid: fb75d7ec4be1d4c43a357985ca9a17bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -581,6 +662,8 @@ MonoBehaviour:
   numberCP: 2
   CP: 0
   difficultyManager: {fileID: 0}
+  lose: 0
+  willWin: 1
 --- !u!4 &2114269437
 Transform:
   m_ObjectHideFlags: 0
@@ -593,5 +676,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

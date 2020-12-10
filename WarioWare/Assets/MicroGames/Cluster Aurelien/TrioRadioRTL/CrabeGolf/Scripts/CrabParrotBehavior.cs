@@ -8,41 +8,48 @@ namespace RadioRTL
     /// <summary>
     /// Théo Valet
     /// </summary>
-}
-public class CrabParrotBehavior : MonoBehaviour
-{
-    private Vector3 target;
-    public float speed;
-    private Vector3 position;
-    public bool isShot;
-    bool isFlying;
 
-    void Start()
+    namespace CrabGolf
     {
-        target = new Vector3(8, -3, 0);
-        position = gameObject.transform.position;
-    }
 
-    void Update()
-    {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
 
-        if (gameObject.transform.position == target)
+        public class CrabParrotBehavior : MonoBehaviour
         {
-            Manager.Instance.Result(false);
-            Destroy(gameObject);
-        }
 
-        if (isShot)
-        {
-            if (!isFlying)
+            private Vector3 target;
+            public float speed;
+            private Vector3 position;
+            public bool isShot;
+            bool isFlying;
+
+            void Start()
             {
-                target = new Vector3(Random.Range(-8f, 8f), 3f, 0f);
-                isFlying = true;
+                target = new Vector3(8, -3, 0);
+                position = gameObject.transform.position;
             }
 
-            speed = 20;
+            void Update()
+            {
+                float step = speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, target, step);
+
+                if (gameObject.transform.position == target)
+                {
+                    Destroy(gameObject);
+                }
+
+                if (isShot)
+                {
+                    CrabSpawner.cs.lose = true;
+                    if (!isFlying)
+                    {
+                        target = new Vector3(Random.Range(-8f, 8f), 3f, 0f);
+                        isFlying = true;
+                    }
+
+                    speed = 20;
+                }
+            }
         }
     }
 }

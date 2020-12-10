@@ -8,42 +8,49 @@ namespace RadioRTL
     /// <summary>
     /// Théo Valet
     /// </summary>
-
+    namespace CrabGolf
+    {
         public class CrabSpawner : TimedBehaviour
         {
+            public static CrabSpawner cs;
+
             public GameObject crab;
             public GameObject crabParrot;
-            [Range(0,4)]
+            [Range(0, 4)]
             public int numberCP;
             public int CP;
             public DifficultyManager difficultyManager;
+            public bool lose;
+
+            public bool willWin = true;
 
             public override void Start()
             {
                 base.Start(); //Do not erase this line!
 
+                cs = this;
             }
 
             //FixedUpdate is called on a fixed time.
             public override void FixedUpdate()
             {
                 base.FixedUpdate(); //Do not erase this line!
-            switch (Manager.Instance.currentDifficulty)
-            {
-                case Manager.Difficulty.EASY:
-                    numberCP = difficultyManager.easyCP;
-                    break;
-                case Manager.Difficulty.MEDIUM:
-                    numberCP = difficultyManager.mediumCP;
-                    break;
-                case Manager.Difficulty.HARD:
-                    numberCP = difficultyManager.hardCP;
-                    break;
-                default:
-                    break;
-            }
+                switch (Manager.Instance.currentDifficulty)
+                {
+                    case Manager.Difficulty.EASY:
+                        numberCP = difficultyManager.easyCP;
+                        break;
+                    case Manager.Difficulty.MEDIUM:
+                        numberCP = difficultyManager.mediumCP;
+                        break;
+                    case Manager.Difficulty.HARD:
+                        numberCP = difficultyManager.hardCP;
+                        break;
+                    default:
+                        break;
+                }
 
-        }
+            }
 
             //TimedUpdate is called once every tick.
             public override void TimedUpdate()
@@ -53,17 +60,18 @@ namespace RadioRTL
                 if (Tick == 2)
                 {
                     if (CP < numberCP)
-                    {                       
+                    {
                         typeCrab = Random.Range(0, 2);
                     }
                     else
                     {
-                        typeCrab = 1; 
+                        typeCrab = 1;
                     }
-                    
+
                     if (typeCrab == 1)
                     {
-                        Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity);
+                        NormalCrabBehaviour currentCrab = Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity).GetComponent<NormalCrabBehaviour>();
+
                     }
                     else if (typeCrab == 0)
                     {
@@ -71,7 +79,7 @@ namespace RadioRTL
                         CP += 1;
 
                     }
-                    
+
                 }
                 if (Tick == 3)
                 {
@@ -99,7 +107,7 @@ namespace RadioRTL
 
                 if (Tick == 4)
                 {
-                    if(CP < numberCP)
+                    if (CP < numberCP)
                     {
                         typeCrab = Random.Range(0, 2);
                     }
@@ -143,13 +151,17 @@ namespace RadioRTL
 
                     }
                 }
-                if (Tick == 8)
+                if (Tick == 8 && !lose)
                 {
-                Manager.Instance.Result(true);
+                    Manager.Instance.Result(true);
+                }
+                else if (Tick == 8 && lose)
+                {
+                    Manager.Instance.Result(false);
                 }
             }
         }
-
+    }
 }
 
 

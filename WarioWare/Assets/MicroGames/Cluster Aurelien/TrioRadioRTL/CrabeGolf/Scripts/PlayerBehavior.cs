@@ -7,59 +7,85 @@ namespace RadioRTL
     /// <summary>
     /// Théo Valet
     /// </summary>
-}
-public class PlayerBehavior : MonoBehaviour
-{
-    public bool strikeUnlock = false;
-    public Sprite preparation;
-    public Sprite frappe;
-    public Sprite frappe2;
-    Sprite baseSprite;
-    public float animFrappe;
-    bool isInAnim;
 
-    private void Start()
+    namespace CrabGolf
     {
-        baseSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-    }
+        public class PlayerBehavior : MonoBehaviour
+        {
+            Animator animator;
+            public bool strikeUnlock = false;
+            public float animFrappe;
+            bool isInAnim;
+            public bool canShoot = true;
+            public bool hit;
+            public SpriteRenderer markShot;
 
-    void Update()
-    {
-
-        if (Input.GetKey("a"))
-        {
-            strikeUnlock = true;
-            gameObject.GetComponent<SpriteRenderer>().sprite = preparation;
-        }
-        else if (strikeUnlock)
-        {
-            StartCoroutine(animfrappe());
-        }
-        else if (!strikeUnlock)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = baseSprite;
-        }
-    }
-    IEnumerator animfrappe()
-    {
-        gameObject.GetComponent<SpriteRenderer>().sprite = frappe;
-        yield return new WaitForSeconds(animFrappe);
-        strikeUnlock = false;
-    }
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if(Input.GetKeyUp("a"))
-        {
-            NormalCrabBehaviour ncb = other.GetComponent<NormalCrabBehaviour>();
-            CrabParrotBehavior cpb = other.GetComponent<CrabParrotBehavior>();
-
-            if(ncb != null)
+            private void Start()
             {
-                ncb.isShot = true;
+                animator = GetComponent<Animator>();     
             }
-            else if (cpb != null)
+
+            void Update()
             {
-                cpb.isShot = true;
+                if (canShoot)
+                {
+                    if (Input.GetButton("A_Button") && !hit)
+                    {
+                        
+                        strikeUnlock = true;
+                        animator.SetBool("Prepare", true);
+                    }
+                    else if (strikeUnlock && !hit)
+                    {
+                        hit = true;
+                        animator.SetBool("Shoot", true);
+                        strikeUnlock = false;
+                        StartCoroutine(ResetHit());
+                    }
+                    else if (!strikeUnlock)
+                    {
+                        animator.SetBool("Prepare", false);
+                        animator.SetBool("Shoot", false);     
+                    }
+                }
+               
+            }
+            
+            IEnumerator ResetHit()
+            {
+                yield return new WaitForSeconds(animFrappe);
+                hit = false;
+            }
+            private void OnTriggerStay2D(Collider2D other)
+            {
+                if (canShoot)
+                {
+                    if (Input.GetButtonUp("A_Button") && !hit)
+                    {
+                        NormalCrabBehaviour ncb = other.GetComponent<NormalCrabBehaviour>();
+                        CrabParrotBehavior cpb = other.GetComponent<CrabParrotBehavior>();
+
+                        if (ncb != null)
+                        {
+                            ncb.isShot = true;
+                        }
+                        else if (cpb != null)
+                        {
+                            cpb.isShot = true;
+                            canShoot = false;
+                            animator.SetBool("Lose", true);
+                        }
+                    }
+                }
+                
+            }
+            private void OnTriggerEnter2D(Collider2D collision)
+            {
+                markShot.enabled = true;
+            }
+            private void OnTriggerExit2D(Collider2D collision)
+            {
+                markShot.enabled = false;
             }
         }
     }
