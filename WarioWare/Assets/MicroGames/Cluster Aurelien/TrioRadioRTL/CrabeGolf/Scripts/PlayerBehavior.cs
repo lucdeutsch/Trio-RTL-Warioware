@@ -19,6 +19,7 @@ namespace RadioRTL
             public bool canShoot = true;
             public bool hit;
             public SpriteRenderer markShot;
+            public SpriteRenderer markDontShot;
 
             private void Start()
             {
@@ -47,15 +48,14 @@ namespace RadioRTL
                         animator.SetBool("Prepare", false);
                         animator.SetBool("Shoot", false);     
                     }
-                }
-               
-            }
-            
+                }            
+            }     
             IEnumerator ResetHit()
             {
                 yield return new WaitForSeconds(animFrappe);
                 hit = false;
             }
+            
             private void OnTriggerStay2D(Collider2D other)
             {
                 if (canShoot)
@@ -81,11 +81,23 @@ namespace RadioRTL
             }
             private void OnTriggerEnter2D(Collider2D collision)
             {
-                markShot.enabled = true;
+                NormalCrabBehaviour ncb = collision.GetComponent<NormalCrabBehaviour>();
+                CrabParrotBehavior cpb = collision.GetComponent<CrabParrotBehavior>();
+
+                if (cpb != null)
+                {
+                    markDontShot.enabled = true;
+                }
+                else if (ncb != null)
+                {
+                    markShot.enabled = true;
+                }
+
             }
             private void OnTriggerExit2D(Collider2D collision)
             {
                 markShot.enabled = false;
+                markDontShot.enabled = false;
             }
         }
     }
