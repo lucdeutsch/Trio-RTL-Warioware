@@ -23,6 +23,8 @@ namespace RadioRTL
             public int hardCP;
             public override void Start()
             {
+                base.Start();
+
                 switch (currentDifficulty)
                 {
                     case Manager.Difficulty.EASY:

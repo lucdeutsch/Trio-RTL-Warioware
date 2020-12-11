@@ -13,7 +13,7 @@ namespace RadioRTL
     {
 
 
-        public class CrabParrotBehavior : MonoBehaviour
+        public class CrabParrotBehavior : TimedBehaviour
         {
 
             private Vector3 target;
@@ -22,15 +22,17 @@ namespace RadioRTL
             public bool isShot;
             bool isFlying;
 
-            void Start()
+            public override void Start()
             {
+                base.Start();
+
                 target = new Vector3(8, -3, 0);
                 position = gameObject.transform.position;
             }
 
             void Update()
             {
-                float step = speed * Time.deltaTime;
+                float step = speed * Time.deltaTime * bpm;
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
 
                 if (gameObject.transform.position == target)
@@ -47,7 +49,7 @@ namespace RadioRTL
                         isFlying = true;
                     }
 
-                    speed = 20;
+                    speed = 0.5f;
                 }
             }
         }

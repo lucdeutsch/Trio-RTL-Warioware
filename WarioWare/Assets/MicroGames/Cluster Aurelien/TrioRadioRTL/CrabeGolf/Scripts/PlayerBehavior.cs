@@ -18,8 +18,6 @@ namespace RadioRTL
             bool isInAnim;
             public bool canShoot = true;
             public bool hit;
-            public SpriteRenderer markShot;
-            public SpriteRenderer markDontShot;
 
             private void Start()
             {
@@ -32,13 +30,11 @@ namespace RadioRTL
                 {
                     if (Input.GetButton("A_Button") && !hit)
                     {
-                        
                         strikeUnlock = true;
                         animator.SetBool("Prepare", true);
                     }
-                    else if (strikeUnlock && !hit)
-                    {
-                        hit = true;
+                    else if (Input.GetButtonUp("A_Button") && strikeUnlock && !hit)
+                    {                        
                         animator.SetBool("Shoot", true);
                         strikeUnlock = false;
                         StartCoroutine(ResetHit());
@@ -52,6 +48,8 @@ namespace RadioRTL
             }     
             IEnumerator ResetHit()
             {
+                hit = true;
+
                 yield return new WaitForSeconds(animFrappe);
                 hit = false;
             }
@@ -60,8 +58,6 @@ namespace RadioRTL
             {
                 if (canShoot)
                 {
-                    if (Input.GetButtonUp("A_Button") && !hit)
-                    {
                         NormalCrabBehaviour ncb = other.GetComponent<NormalCrabBehaviour>();
                         CrabParrotBehavior cpb = other.GetComponent<CrabParrotBehavior>();
 
@@ -75,30 +71,11 @@ namespace RadioRTL
                             canShoot = false;
                             animator.SetBool("Lose", true);
                         }
-                    }
+                    
                 }
                 
             }
-            private void OnTriggerEnter2D(Collider2D collision)
-            {
-                NormalCrabBehaviour ncb = collision.GetComponent<NormalCrabBehaviour>();
-                CrabParrotBehavior cpb = collision.GetComponent<CrabParrotBehavior>();
-
-                if (cpb != null)
-                {
-                    markDontShot.enabled = true;
-                }
-                else if (ncb != null)
-                {
-                    markShot.enabled = true;
-                }
-
-            }
-            private void OnTriggerExit2D(Collider2D collision)
-            {
-                markShot.enabled = false;
-                markDontShot.enabled = false;
-            }
+          
         }
     }
   

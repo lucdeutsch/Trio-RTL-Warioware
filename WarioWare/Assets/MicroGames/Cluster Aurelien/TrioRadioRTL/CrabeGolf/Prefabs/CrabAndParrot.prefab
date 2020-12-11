@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 383649019946708976}
   - component: {fileID: 383649019946708977}
   m_Layer: 0
-  m_Name: Crab and Parrot
+  m_Name: CrabAndParrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,5 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ce5d95e0e34194ea0c0e221d6f23b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  bpm: 60
+  currentDifficulty: 0
+  timer: 0
+  currentTime: 0
+  speed: 0.5
   isShot: 0
