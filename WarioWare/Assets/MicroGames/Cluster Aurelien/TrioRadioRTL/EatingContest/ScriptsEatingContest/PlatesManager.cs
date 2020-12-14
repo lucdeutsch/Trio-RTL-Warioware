@@ -22,13 +22,15 @@ namespace TrioRadioRTL
             //public Sprite goodPlateSpriteEmpty;
             public List<Sprite> Plates = new List<Sprite>();
             public Sprite rottenPlateSprite;
-
+            
 
             // Start is called before the first frame update
             void Start()
             {
                 
                 plate = gameObject.GetComponent<SpriteRenderer>();
+                
+                
             }
 
             // Update is called once per frame

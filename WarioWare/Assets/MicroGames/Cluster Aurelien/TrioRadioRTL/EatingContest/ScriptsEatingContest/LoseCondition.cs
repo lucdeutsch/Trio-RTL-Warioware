@@ -9,10 +9,12 @@ namespace TrioRadioRTL
     {
         public class LoseCondition : TimedBehaviour
         {
+            bool win;
+            public PlayerController player;
             public override void Start()
             {
                 base.Start(); //Do not erase this line!
-
+                win = player.win;
             }
 
             //FixedUpdate is called on a fixed time.
@@ -27,7 +29,15 @@ namespace TrioRadioRTL
             {
                 if (Tick == 8)
                 {
-                    Manager.Instance.Result(false);
+                    if (win)
+                    {
+                        Manager.Instance.Result(true);
+                    }
+                    else
+                    {
+                        Manager.Instance.Result(false);
+                    }
+                    
                 }
             }
         }

@@ -29,9 +29,21 @@ namespace TrioRadioRTL
             public int numberOfPlatesMedium;
             public int numberOfPlatesHard;
 
+
+            public Transform target;
+            Vector3 basePosition;
+            Vector3 moveVector;
+            [HideInInspector]
+            public bool win;
+            public float speed;
+            bool movePlate = true;
+            public GameObject platesManager;
             // Start is called before the first frame update
             void Start()
             {
+                basePosition = transform.position;
+                platesManager.transform.position = basePosition;
+                moveVector = (target.position - transform.position).normalized;
                 if (Manager.Instance.currentDifficulty == Manager.Difficulty.EASY)
                 {
                     numberOfPlates = numberOfPlatesEasy;
@@ -52,7 +64,14 @@ namespace TrioRadioRTL
             // Update is called once per frame
             void Update()
             {
-                                Debug.Log(Input.GetAxis("Left_Joystick_Y"));
+                if (movePlate)
+                {
+                    platesManager.transform.position += Vector3.right * speed * Time.deltaTime;
+                    if (platesManager.transform.position.x >=0)
+                    {
+                        movePlate = false;
+                    }
+                }
                 if (!rottenPlate) //plate isn't rotten
                 {
                     if (/*Input.GetButtonDown("A_Button")*/Input.GetKeyDown("e"))
@@ -93,6 +112,8 @@ namespace TrioRadioRTL
 
             void NextPlate()//changing the plate once its empty
             {
+                platesManager.transform.position = basePosition;
+                movePlate = true;
                 if (Random.Range(0,numberOfRottenPlates) != 0)
                 {
                     rottenPlate = true;
@@ -107,6 +128,7 @@ namespace TrioRadioRTL
 
             void EndMinigame()//ending the mini game
             {
+                win = true;
                 Manager.Instance.Result(true);
             }
         }
