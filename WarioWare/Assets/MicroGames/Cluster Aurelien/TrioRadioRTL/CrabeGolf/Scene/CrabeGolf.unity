@@ -158,9 +158,9 @@ MonoBehaviour:
     type: 3}
   normalCrabBehaviour: {fileID: 2920304919071724466, guid: ede4acfa78b6939428adb2307d7ad118,
     type: 3}
-  easySpeed: 0.1
-  mediumSpeed: 0.12
-  hardSpeed: 0.15
+  easySpeed: 0.2
+  mediumSpeed: 0.15
+  hardSpeed: 0.1
   easyCP: 1
   mediumCP: 2
   hardCP: 2

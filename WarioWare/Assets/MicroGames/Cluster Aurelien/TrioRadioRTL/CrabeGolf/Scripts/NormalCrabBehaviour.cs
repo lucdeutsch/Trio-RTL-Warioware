@@ -28,7 +28,7 @@ namespace RadioRTL
 
             void Update()
             {
-                float step = speed * Time.deltaTime * bpm;
+                float step = (speed * Time.deltaTime / 2 )* bpm;
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
 
                 if (gameObject.transform.position == target)
