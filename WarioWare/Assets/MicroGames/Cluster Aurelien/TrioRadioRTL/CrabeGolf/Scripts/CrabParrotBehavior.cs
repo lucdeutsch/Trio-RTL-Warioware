@@ -8,10 +8,14 @@ namespace RadioRTL
     /// <summary>
     /// Théo Valet
     /// </summary>
+
     namespace CrabGolf
     {
-        public class NormalCrabBehaviour : TimedBehaviour
+
+
+        public class CrabParrotBehavior : TimedBehaviour
         {
+
             private Vector3 target;
             public float speed;
             private Vector3 position;
@@ -33,16 +37,12 @@ namespace RadioRTL
 
                 if (gameObject.transform.position == target)
                 {
-                    if (!isShot)
-                    {
-                        CrabSpawner.cs.lose = true;
-                    }
-
                     Destroy(gameObject);
                 }
 
                 if (isShot)
                 {
+                    CrabSpawner.cs.lose = true;
                     if (!isFlying)
                     {
                         target = new Vector3(Random.Range(-8f, 8f), 3f, 0f);
