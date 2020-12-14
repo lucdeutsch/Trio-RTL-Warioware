@@ -29,6 +29,9 @@ namespace TrioRadioRTL
             public int numberOfPlatesMedium;
             public int numberOfPlatesHard;
 
+            [HideInInspector]
+            public bool win;
+
             // Start is called before the first frame update
             void Start()
             {
@@ -106,6 +109,7 @@ namespace TrioRadioRTL
 
             void EndMinigame()//ending the mini game
             {
+                win = true;
                 Manager.Instance.Result(true);
             }
         }
