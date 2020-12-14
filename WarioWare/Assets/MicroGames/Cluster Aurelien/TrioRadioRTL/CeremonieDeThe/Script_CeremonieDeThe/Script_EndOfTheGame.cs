@@ -24,6 +24,7 @@ namespace RadioRTL
             bool cupIsFull;
             bool potIsInZone = false;
             int cupQuantity;
+			int waterToVictory = 100;
 
             //2- Récupération des donné
             public override void Start()
@@ -69,7 +70,7 @@ namespace RadioRTL
                 {
 
                     //4.1.2- Verfication des conditions
-                    if ( cupQuantity <= 800 && potIsInZone == true)
+                    if ( cupQuantity <= waterToVictory && potIsInZone == true)
                     {
 
                         Manager.Instance.Result(true);

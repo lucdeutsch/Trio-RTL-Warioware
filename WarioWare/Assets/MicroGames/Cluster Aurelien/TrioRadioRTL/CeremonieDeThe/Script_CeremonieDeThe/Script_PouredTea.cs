@@ -25,6 +25,14 @@ namespace RadioRTL
             //1.3- Bool
             private bool isTouchingCup = false;
 
+			//1.4- Les Sprites d'eau
+			public SpriteRenderer firstTeaLevel;
+			public SpriteRenderer secondTeaLevel;
+			public SpriteRenderer thirdTeaLevel;
+
+			//1.5- Le script pour gagner
+			public Script endOfGameScript;
+
             //2- Récupération du component et positionement du Tea Cup
             public override void Start()
             {
@@ -32,6 +40,14 @@ namespace RadioRTL
 
                 gameObject.transform.Translate(0.0f, 0.0f, 0.0f);
                 cupCollider = gameObject.GetComponent<Collider2D>() as Collider2D;
+
+				//2.1- Desibling des sprites d'eau pour eviter tout bugs chelou
+				this.firstTeaLevel.enabled = false;
+				this.secondTeaLevel.enabled = false;
+				this.thirdTeaLevel.enabled = false;
+
+				//2.2- Récupération de la quantité d'eau necessaire pour gagné et ainsi pouvoir gérer les paliers
+				Script
 
             }
 
@@ -41,7 +57,7 @@ namespace RadioRTL
             {
 
                 isTouchingCup = true;
-                Debug.Log(isTouchingCup);
+                //Debug.Log(isTouchingCup);
 
             }
 
@@ -50,7 +66,7 @@ namespace RadioRTL
             {
 
                 isTouchingCup = false;
-                Debug.Log(isTouchingCup);
+                //Debug.Log(isTouchingCup);
 
             }
 
