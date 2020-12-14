@@ -41,6 +41,7 @@ namespace RadioRTL
             {
 
                 isTouchingCup = true;
+                Debug.Log(isTouchingCup);
 
             }
 
@@ -49,6 +50,7 @@ namespace RadioRTL
             {
 
                 isTouchingCup = false;
+                Debug.Log(isTouchingCup);
 
             }
 
