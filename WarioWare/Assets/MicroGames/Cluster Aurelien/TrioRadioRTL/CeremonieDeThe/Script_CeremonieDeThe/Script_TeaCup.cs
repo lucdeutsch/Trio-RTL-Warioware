@@ -40,28 +40,39 @@ namespace RadioRTL
             //3- TimedUpdate is called once every tick (ici la vitesse varie en fonction des tics)
             public override void TimedUpdate()
             {
-
-                //3.1- Mouvement vers la gauche
-                if (isGoingLeft == true)
+                
+                //3.1- Un petit delay pour pas que ça commence directe
+                if (Tick > 1) 
                 {
 
-                    mouvementTeaCup = new Vector2(-2, 0);
+                    //3.1.1- Mouvement vers la gauche
+                    if (isGoingLeft == true)
+                    {
 
-                    teaCupRigidbody.AddForce(mouvementTeaCup * teaCupSpeed);
+                        teaCupRigidbody.velocity = new Vector2(0, 0);
 
-                    isGoingLeft = false;
-                    Debug.Log(mouvementTeaCup * teaCupSpeed);
+                        mouvementTeaCup = new Vector2(-2, 0);
 
-                }
-                //3.2- Mouvement vers la droite
-                else if (isGoingLeft == false) {
+                        teaCupRigidbody.AddForce(mouvementTeaCup * teaCupSpeed);
 
-                    mouvementTeaCup = new Vector2(2, 0);
+                        isGoingLeft = false;
 
-                    teaCupRigidbody.AddForce(mouvementTeaCup * teaCupSpeed);
 
-                    isGoingLeft = true;
-                    Debug.Log(mouvementTeaCup * teaCupSpeed);
+                    }
+                    //3.1.2- Mouvement vers la droite
+                    else
+                    {
+
+                        teaCupRigidbody.velocity = new Vector2(0, 0);
+
+                        mouvementTeaCup = new Vector2(2, 0);
+
+                        teaCupRigidbody.AddForce(mouvementTeaCup * teaCupSpeed);
+
+                        isGoingLeft = true;
+
+                    }
+
                 }
 
             }

@@ -18,14 +18,21 @@ namespace RadioRTL
             private Rigidbody2D teaPotRigidBody;
             public float teaPotSpeed;
             public Vector2 mouvementTeaPot;
+            float moveHorizontal;
+            float moveVertical;
 
             //2- Récupération du component et positionement du Tea-Pot
             public override void Start()
             {
                 base.Start(); //Do not erase this line!
 
-                gameObject.transform.Translate(0.0f, 0.0f, 0.0f);
+                gameObject.transform.Translate(0.0f, -2.0f, 0.0f);
                 teaPotRigidBody = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
+
+            }
+            private void Update()
+            {
+                //3.1- Déplacement du Tea-Pot
 
             }
 
@@ -33,13 +40,11 @@ namespace RadioRTL
             public override void FixedUpdate()
             {
                 base.FixedUpdate(); //Do not erase this line!
+                moveHorizontal = Input.GetAxis("Left_Joystick_X");
 
-                //3.1- Déplacement du Tea-Pot
-                float moveHorizontal = Input.GetAxis("Left_Joystick_X");
+                moveVertical = Input.GetAxis("Left_Joystick_Y");
 
-                float moveVertical = Input.GetAxis("Left_Joystick_Y");
-
-                if (moveHorizontal > 0.1f || moveVertical > 0.1f || moveHorizontal < -0.1f || moveVertical < -0.1f) //Pour éviter les micormouvement parasite
+                if (moveHorizontal > 0.15f || moveVertical > 0.15f || moveHorizontal < -0.15f || moveVertical < -0.15f) //Pour éviter les micormouvement parasite
                 {
 
                     mouvementTeaPot = new Vector2(moveHorizontal, -moveVertical);
@@ -49,12 +54,11 @@ namespace RadioRTL
                 }
                 else //pour éviter que le Tea-Pot continue de bouger si il y a 0 input
                 {
-
                     mouvementTeaPot = new Vector2(0.0f, 0.0f);
 
                     teaPotRigidBody.AddForce(mouvementTeaPot * teaPotSpeed);
-
                 }
+
 
             }
         }

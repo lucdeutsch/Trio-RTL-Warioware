@@ -10,25 +10,50 @@ namespace RadioRTL
 }
 public class PlayerBehavior : MonoBehaviour
 {
-    public bool StrikeUnlock = false;
-    public GameObject NormalCrab;
+    public bool strikeUnlock = false;
+    public Sprite preparation;
+    public Sprite frappe;
+    public Sprite frappe2;
+    Sprite baseSprite;
+    public float animFrappe;
+    bool isInAnim;
 
-
-    void Start()
+    private void Start()
     {
-
-        if (Input.GetButtonDown("A_Button"))
-        {
-            StrikeUnlock = true;
-            Frappe();
-        }
+        baseSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 
-    void Frappe()
+    void Update()
     {
-        if (Input.GetButtonUp("A_Button") && StrikeUnlock)
+
+        if (Input.GetKey("a"))
         {
-            Destroy(gameObject);
+            Debug.Log("Marche");
+            strikeUnlock = true;
+            gameObject.GetComponent<SpriteRenderer>().sprite = preparation;
+        }
+        else if (strikeUnlock)
+        {
+            StartCoroutine(animfrappe());
+        }
+        else if (!strikeUnlock)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = baseSprite;
+        }
+    }
+    IEnumerator animfrappe()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = frappe;
+        yield return new WaitForSeconds(animFrappe);
+        strikeUnlock = false;
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("chibre");
+        if (Input.GetKeyUp("a"))
+        {
+            other.GetComponent<NormalCrabBehaviour>().isShot = true;
+
         }
     }
 

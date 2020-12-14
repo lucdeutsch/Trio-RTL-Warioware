@@ -52,6 +52,7 @@ namespace TrioRadioRTL
             // Update is called once per frame
             void Update()
             {
+                                Debug.Log(Input.GetAxis("Left_Joystick_Y"));
                 if (!rottenPlate) //plate isn't rotten
                 {
                     if (/*Input.GetButtonDown("A_Button")*/Input.GetKeyDown("e"))
