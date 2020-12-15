@@ -52,7 +52,11 @@ namespace TrioRadioRTL
 
             void ChangeSpriteWithChomps(int chomps, int totalChomps)
             {
-                plate.sprite = Plates[totalChomps - chomps];
+                if ((totalChomps - chomps) >= 0)
+                {
+                    plate.sprite = Plates[totalChomps - chomps];
+                }
+                
             }
         }
     }
