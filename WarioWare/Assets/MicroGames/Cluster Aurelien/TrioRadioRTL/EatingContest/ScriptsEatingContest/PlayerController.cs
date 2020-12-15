@@ -44,17 +44,17 @@ namespace TrioRadioRTL
                 basePosition = transform.position;
                 platesManager.transform.position = basePosition;
                 moveVector = (target.position - transform.position).normalized;
-                if (Manager.Instance.currentDifficulty == Manager.Difficulty.EASY)
+                if (Manager.Instance.currentDifficulty == Difficulty.EASY)
                 {
                     numberOfPlates = numberOfPlatesEasy;
                     numberOfRottenPlates = rottenPlatesEasy;
                 }
-                else if (Manager.Instance.currentDifficulty == Manager.Difficulty.MEDIUM)
+                else if (Manager.Instance.currentDifficulty == Difficulty.MEDIUM)
                 {
                     numberOfPlates = numberOfPlatesMedium;
                     numberOfRottenPlates = rottenPlatesMedium;
                 }
-                else if (Manager.Instance.currentDifficulty == Manager.Difficulty.HARD)
+                else if (Manager.Instance.currentDifficulty == Difficulty.HARD)
                 {
                     numberOfPlates = numberOfPlatesHard;
                     numberOfRottenPlates = rottenPlatesHard;

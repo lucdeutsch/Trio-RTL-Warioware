@@ -31,7 +31,7 @@ namespace RadioRTL
 			public SpriteRenderer thirdTeaLevel;
 
 			//1.5- Le script pour gagner
-			public Script endOfGameScript;
+			//public Script endOfGameScript;
 
             //2- Récupération du component et positionement du Tea Cup
             public override void Start()
@@ -47,7 +47,7 @@ namespace RadioRTL
 				this.thirdTeaLevel.enabled = false;
 
 				//2.2- Récupération de la quantité d'eau necessaire pour gagné et ainsi pouvoir gérer les paliers
-				Script
+				//Script
 
             }
 

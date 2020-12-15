@@ -37,13 +37,13 @@ namespace RadioRTL
                 base.FixedUpdate(); //Do not erase this line!
                 switch (Manager.Instance.currentDifficulty)
                 {
-                    case Manager.Difficulty.EASY:
+                    case Difficulty.EASY:
                         numberCP = difficultyManager.easyCP;
                         break;
-                    case Manager.Difficulty.MEDIUM:
+                    case Difficulty.MEDIUM:
                         numberCP = difficultyManager.mediumCP;
                         break;
-                    case Manager.Difficulty.HARD:
+                    case Difficulty.HARD:
                         numberCP = difficultyManager.hardCP;
                         break;
                     default:

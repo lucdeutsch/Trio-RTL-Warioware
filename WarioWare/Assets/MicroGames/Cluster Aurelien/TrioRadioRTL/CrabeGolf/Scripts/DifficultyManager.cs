@@ -27,17 +27,17 @@ namespace RadioRTL
 
                 switch (currentDifficulty)
                 {
-                    case Manager.Difficulty.EASY:
+                    case Difficulty.EASY:
                         //insérer la logique quand le jeu est facile
                         normalCrabBehaviour.speed = easySpeed;
                         crabParrotBehavior.speed = easySpeed;
                         break;
-                    case Manager.Difficulty.MEDIUM:
+                    case Difficulty.MEDIUM:
                         //insérer la logique quand le jeu est facile
                         normalCrabBehaviour.speed = mediumSpeed;
                         crabParrotBehavior.speed = mediumSpeed;
                         break;
-                    case Manager.Difficulty.HARD:
+                    case Difficulty.HARD:
                         //insérer la logique quand le jeu est facile
                         normalCrabBehaviour.speed = hardSpeed;
                         crabParrotBehavior.speed = hardSpeed;
