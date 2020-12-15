@@ -24,7 +24,7 @@ namespace RadioRTL
             bool cupIsFull;
             bool potIsInZone = false;
             int cupQuantity;
-			int waterToVictory = 100;
+			public int waterToVictory = 100;
 
             //2- Récupération des donné
             public override void Start()
@@ -73,14 +73,14 @@ namespace RadioRTL
                     if ( cupQuantity <= waterToVictory && potIsInZone == true)
                     {
 
-                        Manager.Instance.Result(true);
-                        Debug.Log("victoire");
+                        //Manager.Instance.Result(true);
+                        Debug.LogError("victoire");
 
                     }else
                     {
 
-                        Manager.Instance.Result(false);
-                        Debug.Log("defaite");
+                        //Manager.Instance.Result(false);
+                        Debug.LogError("defaite");
                     }
 
                 }

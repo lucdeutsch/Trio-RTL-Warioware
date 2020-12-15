@@ -21,6 +21,8 @@ namespace RadioRTL
 
             //1.2- Int
             public int pouredTea;
+            int quantityToVictory;
+            float quantityLevel;
 
             //1.3- Bool
             private bool isTouchingCup = false;
@@ -31,7 +33,7 @@ namespace RadioRTL
 			public SpriteRenderer thirdTeaLevel;
 
 			//1.5- Le script pour gagner
-			public Script endOfGameScript;
+			public GameObject endOfGameObject;
 
             //2- Récupération du component et positionement du Tea Cup
             public override void Start()
@@ -46,8 +48,11 @@ namespace RadioRTL
 				this.secondTeaLevel.enabled = false;
 				this.thirdTeaLevel.enabled = false;
 
-				//2.2- Récupération de la quantité d'eau necessaire pour gagné et ainsi pouvoir gérer les paliers
-				Script
+                //2.2- Récupération de la quantité d'eau necessaire pour gagné et ainsi pouvoir gérer les paliers
+                Script_EndOfTheGame endOfGameScript = endOfGameObject.GetComponent<Script_EndOfTheGame>();
+                quantityToVictory = endOfGameScript.waterToVictory;
+
+                quantityLevel = quantityToVictory / 3;
 
             }
 
@@ -80,6 +85,26 @@ namespace RadioRTL
                 {
 
                     pouredTea = pouredTea + 1;
+
+                    //4.1.1- Activation des niveaux d'eau
+                    if (pouredTea > quantityLevel && pouredTea <= (quantityLevel * 2))
+                    {
+
+                        firstTeaLevel.enabled = true;
+
+                    }
+                    else if ( pouredTea > (quantityLevel*2) && pouredTea < quantityToVictory)
+                    {
+
+                        secondTeaLevel.enabled = true;
+
+                    }
+                    else if (quantityToVictory <= pouredTea)
+                    {
+
+                        thirdTeaLevel.enabled = true;
+
+                    }
 
                 }
                 else

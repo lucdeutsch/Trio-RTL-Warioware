@@ -307,6 +307,7 @@ MonoBehaviour:
   currentTime: 0
   teaCup: {fileID: 1748715769}
   teaPotCollider: {fileID: 170615284}
+  waterToVictory: 111
 --- !u!1 &170615279
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +344,7 @@ MonoBehaviour:
   currentDifficulty: 0
   timer: 8
   currentTime: 0
-  teaPotSpeed: 30
+  teaPotSpeed: 0
   mouvementTeaPot: {x: 0, y: 0}
 --- !u!212 &170615281
 SpriteRenderer:
@@ -403,7 +404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170615279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.74, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8107410}
@@ -867,7 +868,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -133.85, y: 58.4}
+  m_AnchoredPosition: {x: -476.5, y: 251}
   m_SizeDelta: {x: 68.29019, y: 22.083252}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325305300
@@ -889,7 +890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: But
+  m_text: Goal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -916,8 +917,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -952,7 +953,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -1.4316406}
+  m_margin: {x: 0, y: 0, z: -156.88887, w: -77.88394}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1096,6 +1097,7 @@ MonoBehaviour:
   firstTeaLevel: {fileID: 2097128027}
   secondTeaLevel: {fileID: 274167227}
   thirdTeaLevel: {fileID: 1034368029}
+  endOfGameObject: {fileID: 90747537}
 --- !u!114 &1748715774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1116,7 @@ MonoBehaviour:
   currentTime: 0
   teaCupSpeed: 30
   mouvementTeaCup: {x: 0, y: 0}
+  mouvementTeaCupX: 0
 --- !u!61 &1748715775
 BoxCollider2D:
   m_ObjectHideFlags: 0
