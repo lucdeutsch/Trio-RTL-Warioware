@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Testing;
 
 namespace ACommeAkuma
 {
@@ -12,6 +13,7 @@ namespace ACommeAkuma
         /// </summary>
         public class PlayerController : TimedBehaviour
         {
+            #region variables
             [Header("Player Movement")]
             public float rotationSpeed;
             
@@ -21,16 +23,24 @@ namespace ACommeAkuma
 
             [Header("Debug")]
             [SerializeField] private float rotationDir;
-            [SerializeField] public bool asWin;
+            public bool asWin;
+            [SerializeField] private GameObject audioManagerGO;
 
-            [Header("GameObject References")]
-            public GameObject goalManagerGO;
+            [Header("Prefab References")]
+            public GameObject exploVfx;
+
+            [Header("Scene GO References")]
+            public GameObject goalGO;
 
             private float rBumperHold = 0f;
             private float lBumperHold = 0f;
             private Rigidbody2D playerRb;
             private float velocityLoss;
             private bool canApplyForce;
+            private GameObject motorGO;
+            private GameObject vfxAnchor;
+            private bool canImpactSFX = true;
+            #endregion
 
             public override void Start()
             {
@@ -39,6 +49,9 @@ namespace ACommeAkuma
                 playerRb = GetComponent<Rigidbody2D>();
                 rotationDir = 0f;
                 asWin = false;
+                motorGO = transform.GetChild(1).gameObject;
+                vfxAnchor = motorGO.transform.GetChild(0).gameObject;
+                audioManagerGO = GameObject.Find("AudioManager");
 
             }
 
@@ -50,8 +63,9 @@ namespace ACommeAkuma
                 if (Tick <= 8 && !asWin)
                 {
                     GetInput();
+                    RotateMotor();
 
-                    if (Tick > 1 && canApplyForce)
+                    if (canApplyForce)
                     {
                         ApplyForce();
                     }
@@ -61,9 +75,9 @@ namespace ACommeAkuma
             //TimedUpdate is called once every tick.
             public override void TimedUpdate()
             {
-                if (Tick <= 8 && Tick > 1 && !asWin)
+                if (Tick <= 8 && !asWin)
                 {
-                    //ApplyImpule();
+                    ActivateExplo();
                     canApplyForce = true;
                     velocityLoss = 1f;
                 }
@@ -73,16 +87,15 @@ namespace ACommeAkuma
                     if (asWin)
                     {
                         Debug.Log("You won");
-                        //Manager.Instance.Result(true)
+                        Manager.Instance.Result(true);
                     }
                     else
                     {
                         Debug.Log("You lost");
-                        //Manager.Instance.Result(false)
+                        Manager.Instance.Result(false);
                     }
                 }
             }
-
 
             private void GetInput()
             {
@@ -97,10 +110,10 @@ namespace ACommeAkuma
             private void DirManager()
             {
                 if (lBumperHold > 0 && rBumperHold <= 0)
-                    rotationDir = -1f * lBumperHold;
+                    rotationDir = -1f * (Mathf.Exp(lBumperHold) - 1f);
 
                 else if (lBumperHold <= 0 && rBumperHold > 0)
-                    rotationDir = 1f * rBumperHold;
+                    rotationDir = 1f * (Mathf.Exp(rBumperHold) - 1f);
 
                 else if ((lBumperHold > 0 && rBumperHold > 0) || (lBumperHold <= 0 && rBumperHold <= 0))
                     rotationDir = 0f;
@@ -111,6 +124,9 @@ namespace ACommeAkuma
                 playerRb.AddTorque((rotationDir * rotationSpeed), ForceMode2D.Force);
             }
 
+            /// <summary>
+            /// Apply a force that slowly decrease with time.
+            /// </summary>
             private void ApplyForce()
             {
                 playerRb.AddForce(transform.TransformDirection(Vector2.right) * boostStrengh * velocityLoss , ForceMode2D.Force);
@@ -122,13 +138,59 @@ namespace ACommeAkuma
                     canApplyForce = false;
             }
 
+            /// <summary>
+            /// Rotate the motor at the back of the boat depending one the ratation of the boat.
+            /// </summary>
+            private void RotateMotor()
+            {
+                if (lBumperHold > 0 && rBumperHold <= 0)
+                    motorGO.transform.localEulerAngles = new Vector3(0f, 0f, 25f * lBumperHold);
+
+                else if (lBumperHold <= 0 && rBumperHold > 0)
+                    motorGO.transform.localEulerAngles = new Vector3(0f, 0f, -25f * rBumperHold);
+
+                else if ((lBumperHold > 0 && rBumperHold > 0) || (lBumperHold <= 0 && rBumperHold <= 0))
+                    motorGO.transform.localEulerAngles = Vector3.zero;
+            }
+
+            private void ActivateExplo()
+            {
+                //VFX
+                Instantiate(exploVfx, vfxAnchor.transform.position, Quaternion.identity, vfxAnchor.transform);
+
+                //SFX
+                audioManagerGO.GetComponent<AudioManagerScript>().PlayExploSFX();
+            }
+
+
             private void OnTriggerEnter2D(Collider2D other)
             {
                 if (other.gameObject.tag == "Finish" && !asWin)
                 {
                     asWin = true;
+
+                    goalGO.transform.GetChild(0).GetComponent<Animator>().SetBool("AsWin", true);
+
                     playerRb.velocity = Vector2.zero;
                 }
+                
+            }
+
+            private void OnCollisionEnter2D(Collision2D other)
+            {
+                if (other.gameObject.tag == "Wall" && canImpactSFX)
+                {
+                    canImpactSFX = false;
+                    audioManagerGO.GetComponent<AudioManagerScript>().PlayImpactSFX();
+                    StartCoroutine(CooldownDown());
+                }
+            }
+
+            private IEnumerator CooldownDown()
+            {
+                yield return new WaitForSeconds(0.3f);
+
+                canImpactSFX = true;
             }
         }
     }
