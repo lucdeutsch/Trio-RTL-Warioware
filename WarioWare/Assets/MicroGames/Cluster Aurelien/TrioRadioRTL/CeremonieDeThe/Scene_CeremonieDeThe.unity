@@ -344,7 +344,7 @@ MonoBehaviour:
   currentDifficulty: 0
   timer: 8
   currentTime: 0
-  teaPotSpeed: 0
+  teaPotSpeed: 10
   mouvementTeaPot: {x: 0, y: 0}
 --- !u!212 &170615281
 SpriteRenderer:

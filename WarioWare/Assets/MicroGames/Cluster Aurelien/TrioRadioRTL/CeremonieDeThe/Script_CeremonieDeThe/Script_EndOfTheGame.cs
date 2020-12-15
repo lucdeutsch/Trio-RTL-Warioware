@@ -73,13 +73,13 @@ namespace RadioRTL
                     if ( cupQuantity <= waterToVictory && potIsInZone == true)
                     {
 
-                        //Manager.Instance.Result(true);
+                        Manager.Instance.Result(true);
                         Debug.LogError("victoire");
 
                     }else
                     {
 
-                        //Manager.Instance.Result(false);
+                        Manager.Instance.Result(false);
                         Debug.LogError("defaite");
                     }
 
