@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 90747539}
   - component: {fileID: 90747538}
   - component: {fileID: 90747540}
+  - component: {fileID: 90747541}
   m_Layer: 0
   m_Name: VictoryZone
   m_TagString: Untagged
@@ -308,6 +309,26 @@ MonoBehaviour:
   teaCup: {fileID: 1748715769}
   teaPotCollider: {fileID: 170615284}
   waterToVictory: 111
+--- !u!114 &90747541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90747537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad15ecf870ea8bb47a87f24a59a4ce77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bpm: 60
+  currentDifficulty: 0
+  timer: 0
+  currentTime: 0
+  teaCup: {fileID: 1748715769}
+  teaPot: {fileID: 170615279}
+  difficultyTeaPotSpeed: 0
+  difficultyMouvementTeaCup: 0
 --- !u!1 &170615279
 GameObject:
   m_ObjectHideFlags: 0
