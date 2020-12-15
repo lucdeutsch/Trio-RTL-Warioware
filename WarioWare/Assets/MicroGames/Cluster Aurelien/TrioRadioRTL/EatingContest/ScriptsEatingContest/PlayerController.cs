@@ -100,7 +100,7 @@ namespace TrioRadioRTL
                     }
                     if (/*Input.GetButtonDown("A_Button") */Input.GetKeyDown("e"))
                     {
-                        Manager.Instance.Result(false);
+                        win = false;
                     }
                 }
 
@@ -129,7 +129,7 @@ namespace TrioRadioRTL
             void EndMinigame()//ending the mini game
             {
                 win = true;
-                Manager.Instance.Result(true);
+                
             }
         }
     }
