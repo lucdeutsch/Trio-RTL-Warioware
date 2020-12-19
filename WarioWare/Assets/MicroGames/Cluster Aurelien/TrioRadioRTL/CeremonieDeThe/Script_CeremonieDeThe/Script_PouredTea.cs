@@ -16,7 +16,7 @@ namespace RadioRTL
 
             //1- Variables
             //1.1- Collider
-            private Collider2D cupCollider;
+            public Collider2D cupCollider;
             public Collider2D waterCollider;
 
             //1.2- Int
@@ -41,7 +41,6 @@ namespace RadioRTL
                 base.Start(); //Do not erase this line!
 
                 gameObject.transform.Translate(0.0f, 0.0f, 0.0f);
-                cupCollider = gameObject.GetComponent<Collider2D>() as Collider2D;
 
 				//2.1- Desibling des sprites d'eau pour eviter tout bugs chelou
 				this.firstTeaLevel.enabled = false;

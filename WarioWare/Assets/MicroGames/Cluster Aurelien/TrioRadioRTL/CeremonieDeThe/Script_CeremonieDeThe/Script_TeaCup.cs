@@ -29,6 +29,7 @@ namespace RadioRTL
                 gameObject.transform.Translate(0.0f, 0.0f, 0.0f);
                 teaCupRigidbody = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
 
+
             }
 
             //FixedUpdate is called on a fixed time.

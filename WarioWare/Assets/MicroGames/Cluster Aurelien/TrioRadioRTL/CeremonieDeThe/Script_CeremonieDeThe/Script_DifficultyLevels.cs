@@ -52,17 +52,17 @@ namespace RadioRTL
 
                     case Manager.Difficulty.MEDIUM:
 
-                        teaPotController.teaPotSpeed = 40;
+                        teaPotController.teaPotSpeed = 30;
 
-                        teaCupManager.mouvementTeaCupX = 4;
+                        teaCupManager.mouvementTeaCupX = 3;
 
                         break;
 
                     case Manager.Difficulty.HARD:
 
-                        teaPotController.teaPotSpeed = 50;
+                        teaPotController.teaPotSpeed = 30;
 
-                        teaCupManager.mouvementTeaCupX = 6;
+                        teaCupManager.mouvementTeaCupX = 4;
 
                         break;
 
