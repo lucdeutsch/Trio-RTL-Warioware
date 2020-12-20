@@ -64,48 +64,54 @@ namespace TrioRadioRTL
             // Update is called once per frame
             void Update()
             {
-                if (movePlate)
+                if (numberOfPlates > 0)
                 {
-                    platesManager.transform.position += Vector3.right * speed * Time.deltaTime;
-                    if (platesManager.transform.position.x >=0)
+                    if (movePlate)
                     {
-                        movePlate = false;
+                        platesManager.transform.position += Vector3.right * speed * Time.deltaTime;
+                        if (platesManager.transform.position.x >= 0)
+                        {
+                            movePlate = false;
+                        }
                     }
-                }
-                if (!rottenPlate) //plate isn't rotten
-                {
-                    if (/*Input.GetButtonDown("A_Button")*/Input.GetKeyDown("e"))
+                    if (!rottenPlate) //plate isn't rotten
                     {
-                        chomp += 1;
-                    }
+                        if (/*Input.GetButtonDown("A_Button")*/Input.GetKeyDown("e"))
+                        {
+                            chomp += 1;
+                        }
 
-                    if (chomp == numberOfChomps && numberOfPlates != 0) //if the player eats everything in the plate
-                    {
-                        chomp = 0;
-                        numberOfPlates -= 1;
-                        NextPlate(); //Changing Plates
+                        if (chomp == numberOfChomps && numberOfPlates != 0) //if the player eats everything in the plate
+                        {
+                            chomp = 0;
+                            numberOfPlates -= 1;
+                            NextPlate(); //Changing Plates
+                        }
+                        if (Input.GetKeyDown("a"))
+                        {
+                            chomp = 0;
+                            NextPlate();
+                        }
                     }
-                    if (Input.GetKeyDown("a"))
+                    else if (rottenPlate)//plate is rotten
                     {
-                        chomp = 0;
-                        NextPlate();
-                    }
-                }
-                else if (rottenPlate)//plate is rotten
-                { 
-                    if (/*Input.GetButtonDown("X_Button")*/Input.GetKeyDown("a"))
-                    {
+                        if (/*Input.GetButtonDown("X_Button")*/Input.GetKeyDown("a"))
+                        {
 
-                        NextPlate();
-                    }
-                    if (/*Input.GetButtonDown("A_Button") */Input.GetKeyDown("e"))
-                    {
-                        Manager.Instance.Result(false);
+                            NextPlate();
+                        }
+                        if (/*Input.GetButtonDown("A_Button") */Input.GetKeyDown("e"))
+                        {
+                            win = false;
+                        }
                     }
                 }
+                
 
                 if (numberOfPlates == 0) //if there are no more plaets the player wins
                 {
+                    platesManager.GetComponent<SpriteRenderer>().enabled = false;
+                    Debug.Log("isCalled");
                     EndMinigame();
                 }
             }
@@ -129,7 +135,7 @@ namespace TrioRadioRTL
             void EndMinigame()//ending the mini game
             {
                 win = true;
-                Manager.Instance.Result(true);
+                
             }
         }
     }

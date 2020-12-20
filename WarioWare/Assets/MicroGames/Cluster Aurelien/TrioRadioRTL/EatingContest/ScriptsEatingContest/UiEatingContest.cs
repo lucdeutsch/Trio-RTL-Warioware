@@ -14,6 +14,7 @@ namespace TrioRadioRTL
             public PlayerController playerController;
             public int chomp;
             public int numberOfChomps;
+            public int totalPlates;
             [Header("UI")]
             
             
@@ -25,7 +26,7 @@ namespace TrioRadioRTL
             {
                 base.Start(); //Do not erase this line!
                 bpmText.text = "bpm: " + bpm.ToString();
-                
+                totalPlates = playerController.numberOfPlates;
             }
 
             //FixedUpdate is called on a fixed time.
@@ -34,7 +35,9 @@ namespace TrioRadioRTL
                 base.FixedUpdate(); //Do not erase this line!
                 chomp = playerController.chomp;
                 numberOfChomps = playerController.numberOfChomps;
-                timerUI.value = 1-((float)chomp /(float) numberOfChomps);
+                timerUI.value = 1-((float)playerController.numberOfPlates/(float)totalPlates);
+                
+                
                 
             }
 

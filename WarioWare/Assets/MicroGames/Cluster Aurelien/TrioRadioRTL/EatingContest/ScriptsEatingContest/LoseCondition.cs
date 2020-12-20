@@ -14,14 +14,14 @@ namespace TrioRadioRTL
             public override void Start()
             {
                 base.Start(); //Do not erase this line!
-                win = player.win;
+                
             }
 
             //FixedUpdate is called on a fixed time.
             public override void FixedUpdate()
             {
                 base.FixedUpdate(); //Do not erase this line!
-
+                win = player.win;
             }
 
             //TimedUpdate is called once every tick.
@@ -29,6 +29,7 @@ namespace TrioRadioRTL
             {
                 if (Tick == 8)
                 {
+                    Debug.Log("win = " + win);
                     if (win)
                     {
                         Manager.Instance.Result(true);
