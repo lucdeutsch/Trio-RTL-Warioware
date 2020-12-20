@@ -14,11 +14,12 @@ namespace RadioRTL
         public class Script_TeaCup : TimedBehaviour
         {
 
-            //- Création des variables
+            //1- Création des variables
             private Rigidbody2D teaCupRigidbody;
             public float teaCupSpeed;
             public Vector2 mouvementTeaCup;
             private bool isGoingLeft;
+            public int mouvementTeaCupX;
 
             //2- Récupération du component et positionement de la Tea Cup
             public override void Start()
@@ -27,6 +28,7 @@ namespace RadioRTL
 
                 gameObject.transform.Translate(0.0f, 0.0f, 0.0f);
                 teaCupRigidbody = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
+
 
             }
 
@@ -51,7 +53,7 @@ namespace RadioRTL
 
                         teaCupRigidbody.velocity = new Vector2(0, 0);
 
-                        mouvementTeaCup = new Vector2(-2, 0);
+                        mouvementTeaCup = new Vector2(-mouvementTeaCupX, 0);
 
                         teaCupRigidbody.AddForce(mouvementTeaCup * teaCupSpeed);
 
@@ -65,7 +67,7 @@ namespace RadioRTL
 
                         teaCupRigidbody.velocity = new Vector2(0, 0);
 
-                        mouvementTeaCup = new Vector2(2, 0);
+                        mouvementTeaCup = new Vector2(mouvementTeaCupX, 0);
 
                         teaCupRigidbody.AddForce(mouvementTeaCup * teaCupSpeed);
 
