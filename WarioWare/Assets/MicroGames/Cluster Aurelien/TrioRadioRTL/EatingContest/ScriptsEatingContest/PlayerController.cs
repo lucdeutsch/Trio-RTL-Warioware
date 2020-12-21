@@ -95,12 +95,12 @@ namespace TrioRadioRTL
                     }
                     else if (rottenPlate)//plate is rotten
                     {
-                        if (/*Input.GetButtonDown("X_Button")*/Input.GetKeyDown("a"))
+                        if (Input.GetButtonDown("X_Button") || Input.GetKeyDown("a"))
                         {
 
                             NextPlate();
                         }
-                        if (/*Input.GetButtonDown("A_Button") */Input.GetKeyDown("e"))
+                        if (Input.GetButtonDown("A_Button")|| Input.GetKeyDown("e"))
                         {
                             win = false;
                         }
