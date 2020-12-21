@@ -42,7 +42,7 @@ namespace RadioRTL
                 switch (currentDifficulty)
                 {
 
-                    case Manager.Difficulty.EASY:
+                    case Difficulty.EASY:
 
                         teaPotController.teaPotSpeed = 30;
 
@@ -50,7 +50,7 @@ namespace RadioRTL
 
                         break;
 
-                    case Manager.Difficulty.MEDIUM:
+                    case Difficulty.MEDIUM:
 
                         teaPotController.teaPotSpeed = 30;
 
@@ -58,7 +58,7 @@ namespace RadioRTL
 
                         break;
 
-                    case Manager.Difficulty.HARD:
+                    case Difficulty.HARD:
 
                         teaPotController.teaPotSpeed = 30;
 

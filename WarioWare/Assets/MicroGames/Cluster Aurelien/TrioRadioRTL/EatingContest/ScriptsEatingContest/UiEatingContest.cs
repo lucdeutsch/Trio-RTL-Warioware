@@ -35,7 +35,7 @@ namespace TrioRadioRTL
                 base.FixedUpdate(); //Do not erase this line!
                 chomp = playerController.chomp;
                 numberOfChomps = playerController.numberOfChomps;
-                timerUI.value = 1-((float)playerController.numberOfPlates/(float)totalPlates);
+                timerUI.value = ((float)playerController.numberOfPlates/(float)totalPlates);
                 
                 
                 
