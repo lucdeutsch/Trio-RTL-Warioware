@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Testing;
+
 namespace ACommeAkuma
 {
     namespace SaveThePirate
@@ -17,22 +18,22 @@ namespace ACommeAkuma
             public GameObject level3Prefab;
 
             [Header("Difficulty")]
-            public Manager.Difficulty difficulty;
+            public Difficulty difficulty;
 
 
             public override void Start()
             {
                 base.Start(); //Do not erase this line!
 
-                switch (difficulty)
+                switch (currentDifficulty)
                 {
-                    case Manager.Difficulty.EASY:
+                    case Difficulty.EASY:
                         Instantiate(level1Prefab, transform);
                         break;
-                    case Manager.Difficulty.MEDIUM:
+                    case Difficulty.MEDIUM:
                         Instantiate(level2Prefab, transform);
                         break;
-                    case Manager.Difficulty.HARD:
+                    case Difficulty.HARD:
                         Instantiate(level3Prefab, transform);
                         break;
                 }

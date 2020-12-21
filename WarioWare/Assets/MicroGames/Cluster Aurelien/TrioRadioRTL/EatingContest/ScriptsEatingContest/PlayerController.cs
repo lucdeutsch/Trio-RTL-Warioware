@@ -29,20 +29,32 @@ namespace TrioRadioRTL
             public int numberOfPlatesMedium;
             public int numberOfPlatesHard;
 
+
+            public Transform target;
+            Vector3 basePosition;
+            Vector3 moveVector;
+            [HideInInspector]
+            public bool win;
+            public float speed;
+            bool movePlate = true;
+            public GameObject platesManager;
             // Start is called before the first frame update
             void Start()
             {
-                if (Manager.Instance.currentDifficulty == Manager.Difficulty.EASY)
+                basePosition = transform.position;
+                platesManager.transform.position = basePosition;
+                moveVector = (target.position - transform.position).normalized;
+                if (Manager.Instance.currentDifficulty == Difficulty.EASY)
                 {
                     numberOfPlates = numberOfPlatesEasy;
                     numberOfRottenPlates = rottenPlatesEasy;
                 }
-                else if (Manager.Instance.currentDifficulty == Manager.Difficulty.MEDIUM)
+                else if (Manager.Instance.currentDifficulty == Difficulty.MEDIUM)
                 {
                     numberOfPlates = numberOfPlatesMedium;
                     numberOfRottenPlates = rottenPlatesMedium;
                 }
-                else if (Manager.Instance.currentDifficulty == Manager.Difficulty.HARD)
+                else if (Manager.Instance.currentDifficulty == Difficulty.HARD)
                 {
                     numberOfPlates = numberOfPlatesHard;
                     numberOfRottenPlates = rottenPlatesHard;
@@ -52,47 +64,62 @@ namespace TrioRadioRTL
             // Update is called once per frame
             void Update()
             {
-                                Debug.Log(Input.GetAxis("Left_Joystick_Y"));
-                if (!rottenPlate) //plate isn't rotten
+                if (numberOfPlates > 0)
                 {
-                    if (/*Input.GetButtonDown("A_Button")*/Input.GetKeyDown("e"))
+                    if (movePlate)
                     {
-                        chomp += 1;
+                        platesManager.transform.position += Vector3.right * speed * Time.deltaTime;
+                        if (platesManager.transform.position.x >= 0)
+                        {
+                            movePlate = false;
+                        }
                     }
+                    if (!rottenPlate) //plate isn't rotten
+                    {
+                        if (/*Input.GetButtonDown("A_Button")*/Input.GetKeyDown("e"))
+                        {
+                            chomp += 1;
+                        }
 
-                    if (chomp == numberOfChomps && numberOfPlates != 0) //if the player eats everything in the plate
-                    {
-                        chomp = 0;
-                        numberOfPlates -= 1;
-                        NextPlate(); //Changing Plates
+                        if (chomp == numberOfChomps && numberOfPlates != 0) //if the player eats everything in the plate
+                        {
+                            chomp = 0;
+                            numberOfPlates -= 1;
+                            NextPlate(); //Changing Plates
+                        }
+                        if (Input.GetKeyDown("a"))
+                        {
+                            chomp = 0;
+                            NextPlate();
+                        }
                     }
-                    if (Input.GetKeyDown("a"))
+                    else if (rottenPlate)//plate is rotten
                     {
-                        chomp = 0;
-                        NextPlate();
+                        if (/*Input.GetButtonDown("X_Button")*/Input.GetKeyDown("a"))
+                        {
+
+                            NextPlate();
+                        }
+                        if (/*Input.GetButtonDown("A_Button") */Input.GetKeyDown("e"))
+                        {
+                            win = false;
+                        }
                     }
                 }
-                else if (rottenPlate)//plate is rotten
-                { 
-                    if (/*Input.GetButtonDown("X_Button")*/Input.GetKeyDown("a"))
-                    {
-
-                        NextPlate();
-                    }
-                    if (/*Input.GetButtonDown("A_Button") */Input.GetKeyDown("e"))
-                    {
-                        Manager.Instance.Result(false);
-                    }
-                }
+                
 
                 if (numberOfPlates == 0) //if there are no more plaets the player wins
                 {
+                    platesManager.GetComponent<SpriteRenderer>().enabled = false;
+                    Debug.Log("isCalled");
                     EndMinigame();
                 }
             }
 
             void NextPlate()//changing the plate once its empty
             {
+                platesManager.transform.position = basePosition;
+                movePlate = true;
                 if (Random.Range(0,numberOfRottenPlates) != 0)
                 {
                     rottenPlate = true;
@@ -107,7 +134,8 @@ namespace TrioRadioRTL
 
             void EndMinigame()//ending the mini game
             {
-                Manager.Instance.Result(true);
+                win = true;
+                
             }
         }
     }

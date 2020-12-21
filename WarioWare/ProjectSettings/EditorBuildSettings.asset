@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MicroGames/Cluster Aurelien/TrioDragonPeperes/CestNotreTresor/CestNotreTresorScene.unity
     guid: 2c37fdeff133a12429ae696e1a86f82e
+  - enabled: 1
+    path: Assets/MicroGames/Cluster Aurelien/TrioRadioRTL/CrabeGolf/Scene/CrabeGolf.unity
+    guid: 447cdb5bb911ccc4e94457ef6a5baabd
   m_configObjects: {}

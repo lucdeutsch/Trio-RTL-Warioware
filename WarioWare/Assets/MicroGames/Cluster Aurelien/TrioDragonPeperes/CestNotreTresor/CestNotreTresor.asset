@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: CestNotreTresor
   m_EditorClassIdentifier: 
   cluster: 1
-  trio: ACommeAkuma
-  haptiqueChal: 0
-  inputChal: 0
-  indexEnum: 0
-  verbe: 
+  trio: "DragonsP\xE9p\xE8res"
+  indexEnum: 2
+  verbe: Esquivez!
   microGameScene:
     sceneAsset: {fileID: 102900000, guid: 2c37fdeff133a12429ae696e1a86f82e, type: 3}
     required: 1
-    buildIndex: 7
+    buildIndex: 2
+  inputs: {fileID: 21300000, guid: ab47304aa77958141893c85e5165d136, type: 3}
   currentDifficulty: 0
+  idWeight: 0
+  hasBarrel: 0

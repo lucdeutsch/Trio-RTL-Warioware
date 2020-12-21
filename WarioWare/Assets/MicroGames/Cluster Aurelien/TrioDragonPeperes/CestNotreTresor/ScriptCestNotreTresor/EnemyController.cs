@@ -12,7 +12,7 @@ namespace Dragons_Peperes
 
         public class EnemyController : MonoBehaviour
         {
-            [SerializeField] float enemySpeed = 6;
+            public float enemySpeed = 5.5f;
             [SerializeField] float enemyXSpeed = 4;
 
             public Transform target;
@@ -20,10 +20,24 @@ namespace Dragons_Peperes
 
             public float bound_Y;
 
+            private EnemyManager minigameManager;
 
             private void Start()
             {
                 target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+                minigameManager = FindObjectOfType<EnemyManager>();
+
+                if(minigameManager.bpm > 90)
+                {
+                    enemySpeed = enemySpeed * 1.2f;
+                }
+
+                if(minigameManager.bpm >= 140f)
+                {
+                    enemySpeed = enemySpeed * 1.5f;
+                }
+
+                
             }
 
 
@@ -52,6 +66,8 @@ namespace Dragons_Peperes
                 if (other.name == "Player")
                 {
                     Debug.Log("Game Lost");
+
+                    minigameManager.YouLost();
                 }
             }
         }

@@ -22,13 +22,15 @@ namespace TrioRadioRTL
             //public Sprite goodPlateSpriteEmpty;
             public List<Sprite> Plates = new List<Sprite>();
             public Sprite rottenPlateSprite;
-
+            
 
             // Start is called before the first frame update
             void Start()
             {
                 
                 plate = gameObject.GetComponent<SpriteRenderer>();
+                
+                
             }
 
             // Update is called once per frame
@@ -50,7 +52,11 @@ namespace TrioRadioRTL
 
             void ChangeSpriteWithChomps(int chomps, int totalChomps)
             {
-                plate.sprite = Plates[totalChomps - chomps];
+                if ((totalChomps - chomps) >= 0)
+                {
+                    plate.sprite = Plates[totalChomps - chomps];
+                }
+                
             }
         }
     }

@@ -7,54 +7,76 @@ namespace RadioRTL
     /// <summary>
     /// Théo Valet
     /// </summary>
-}
-public class PlayerBehavior : MonoBehaviour
-{
-    public bool strikeUnlock = false;
-    public Sprite preparation;
-    public Sprite frappe;
-    public Sprite frappe2;
-    Sprite baseSprite;
-    public float animFrappe;
-    bool isInAnim;
 
-    private void Start()
+    namespace CrabGolf
     {
-        baseSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-    }
-
-    void Update()
-    {
-
-        if (Input.GetKey("a"))
+        public class PlayerBehavior : MonoBehaviour
         {
-            Debug.Log("Marche");
-            strikeUnlock = true;
-            gameObject.GetComponent<SpriteRenderer>().sprite = preparation;
-        }
-        else if (strikeUnlock)
-        {
-            StartCoroutine(animfrappe());
-        }
-        else if (!strikeUnlock)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = baseSprite;
-        }
-    }
-    IEnumerator animfrappe()
-    {
-        gameObject.GetComponent<SpriteRenderer>().sprite = frappe;
-        yield return new WaitForSeconds(animFrappe);
-        strikeUnlock = false;
-    }
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        Debug.Log("chibre");
-        if (Input.GetKeyUp("a"))
-        {
-            other.GetComponent<NormalCrabBehaviour>().isShot = true;
+            Animator animator;
+            public bool strikeUnlock = false;
+            public float animFrappe;
+            bool isInAnim;
+            public bool canShoot = true;
+            public bool hit;
 
+            private void Start()
+            {
+                animator = GetComponent<Animator>();     
+            }
+
+            void Update()
+            {
+                if (canShoot)
+                {
+                    if (Input.GetButton("A_Button") && !hit)
+                    {
+                        strikeUnlock = true;
+                        animator.SetBool("Prepare", true);
+                    }
+                    else if (Input.GetButtonUp("A_Button") && strikeUnlock && !hit)
+                    {                        
+                        animator.SetBool("Shoot", true);
+                        strikeUnlock = false;
+                        StartCoroutine(ResetHit());
+                    }
+                    else if (!strikeUnlock)
+                    {
+                        animator.SetBool("Prepare", false);
+                        animator.SetBool("Shoot", false);     
+                    }
+                }            
+            }     
+            IEnumerator ResetHit()
+            {
+                hit = true;
+
+                yield return new WaitForSeconds(animFrappe);
+                hit = false;
+            }
+            
+            private void OnTriggerStay2D(Collider2D other)
+            {
+                if (canShoot)
+                {
+                        NormalCrabBehaviour ncb = other.GetComponent<NormalCrabBehaviour>();
+                        CrabParrotBehavior cpb = other.GetComponent<CrabParrotBehavior>();
+
+                        if (ncb != null)
+                        {
+                            ncb.isShot = true;
+                        }
+                        else if (cpb != null)
+                        {
+                            cpb.isShot = true;
+                            canShoot = false;
+                            animator.SetBool("Lose", true);
+                        }
+                    
+                }
+                
+            }
+          
         }
     }
-
+  
 }
