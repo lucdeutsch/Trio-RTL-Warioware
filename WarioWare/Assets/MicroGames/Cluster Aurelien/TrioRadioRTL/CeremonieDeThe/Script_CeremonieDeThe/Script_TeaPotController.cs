@@ -26,7 +26,7 @@ namespace RadioRTL
             {
                 base.Start(); //Do not erase this line!
 
-                gameObject.transform.Translate(0.0f, -2.0f, 0.0f);
+                gameObject.transform.Translate(-1.0f, -2.0f, 0.0f);
                 teaPotRigidBody = gameObject.GetComponent<Rigidbody2D>() as Rigidbody2D;
 
             }

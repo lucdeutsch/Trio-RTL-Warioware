@@ -308,7 +308,7 @@ MonoBehaviour:
   currentTime: 0
   teaCup: {fileID: 1748715769}
   teaPotCollider: {fileID: 1087706631}
-  waterToVictory: 111
+  waterToVictory: 501
 --- !u!114 &90747541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170615279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.74, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8107410}
@@ -634,7 +634,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9489032574072184488bfbb1549a1029, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea0cf923f9c0ce74287895d1c4b363cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -957,7 +957,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 737.4, y: 432.4}
+    oldSize: {x: 739.6, y: 434.5}
     newSize: {x: 737.4, y: 432.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1005,7 +1005,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7fd15565d67d0264b925f01a49d6b549, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da2dbda5f9702934c80acc5659ec7ad9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1541,7 +1541,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b235da9b79182f54b82953726ab50a22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aef109626ae29c74690bb86f8f53acb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
