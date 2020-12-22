@@ -374,6 +374,122 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &940654507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940654509}
+  - component: {fileID: 940654508}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &940654508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940654507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522853e9e4b6eda4a9a77ed4019c963d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Coup de Golf
+    clip: {fileID: 8300000, guid: 5cede915e3a566d4b8bf8108cd7fe95e, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: "D\xE9placement Crabe"
+    clip: {fileID: 8300000, guid: 8ba3710d36af64046a80a1817a71be17, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Frappe Perroquet
+    clip: {fileID: 8300000, guid: 2c63d35f5afd1224582562f59f5e5025, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Crabe dans l'eau
+    clip: {fileID: 8300000, guid: b821fd15f3114aa49809e2629919d0c6, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Crabe dans le ciel
+    clip: {fileID: 8300000, guid: c9145039ffd81044db708e211d6180a6, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: "D\xE9faite"
+    clip: {fileID: 8300000, guid: 42829a5619e6e864d88238dc8189aaa1, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion Bateau
+    clip: {fileID: 8300000, guid: 767f3b57701b1a448923254dd4d80585, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Bateau qui coule
+    clip: {fileID: 8300000, guid: 720c1fdd91c9ae440a09b33947a22e4c, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Musique 60 BPM
+    clip: {fileID: 8300000, guid: 536ebf4506e38b441ad274e1e8e80de8, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Musique 90 BPM
+    clip: {fileID: 8300000, guid: 60a266a86955c1c4780328ec36f7f869, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Musique 120 BPM
+    clip: {fileID: 8300000, guid: f4f87608548cb1c45ae7303c77e760ec, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Musique 150 BPM
+    clip: {fileID: 8300000, guid: 63854cc34302bbf46ac47e6c0e0c5602, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &940654509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940654507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1249330880
 GameObject:
   m_ObjectHideFlags: 0
