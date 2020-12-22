@@ -23,8 +23,10 @@ namespace Dragons_Peperes
 
             public List<GameObject> coinsHard = new List<GameObject>();
 
+            public List<GameObject> spotsHard = new List<GameObject>();
 
-            
+
+
 
             //public List<GameObject> hiddenCoin = new List<GameObject>();
 
@@ -54,7 +56,7 @@ namespace Dragons_Peperes
 
                 for (int i = 0; i < spotsMedium.Count; i++)
                 {
-                    int rand = Random.Range(0, coinsMedium.Count);
+                    int rand = Random.Range(0, coinsHard.Count);
                     Instantiate(coinsHard[rand], spotsMedium[i].transform.position, Quaternion.identity);
                     coinsHard.RemoveAt(rand);
                 }

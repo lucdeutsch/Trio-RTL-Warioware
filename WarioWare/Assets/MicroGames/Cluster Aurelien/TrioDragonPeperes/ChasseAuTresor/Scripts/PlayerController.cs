@@ -17,39 +17,72 @@ namespace Dragons_Peperes
 
             public float distance;
 
-            public int inputNumber;
+            public GameObject treasure;
+
+            private SpriteRenderer spriteRenderer;
+
+            public Sprite upSprite;
+            public Sprite downSprite;
+            public Sprite leftSprite;
+            public Sprite rightSprite;
 
             // Start is called before the first frame update
             void Start()
             {
                 canMove = true;
 
-                distance = 1.0f;
+                distance = 0.8f;
 
-                inputNumber = 0;
+                spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
             }
 
             private void FixedUpdate()
             {
-                if (Mathf.Abs(Input.GetAxisRaw("Left_Joystick_X")) <= 0.2 && Mathf.Abs(Input.GetAxisRaw("Left_Joystick_Y")) <= 0.2)
+                if(treasure.GetComponent<WinOrLooseScript>().finished == false)
                 {
-                    canMove = true;
-                }
+                    if (Mathf.Abs(Input.GetAxisRaw("Left_Joystick_X")) <= 0.2 && Mathf.Abs(Input.GetAxisRaw("Left_Joystick_Y")) <= 0.2)
+                    {
+                        canMove = true;
+                    }
+                }                
 
                 if (canMove == true)
                 {
                     if (Mathf.Abs(Input.GetAxisRaw("Left_Joystick_X")) >= 0.95f)
                     {
-                        transform.position += new Vector3(Input.GetAxisRaw("Left_Joystick_X") * distance, 0, 0);
-                        inputNumber = inputNumber + 1;
+                        if(Input.GetAxisRaw("Left_Joystick_X") > 0f)
+                        {
+                            transform.position += new Vector3(distance, 0, 0);
+                            spriteRenderer.sprite = rightSprite;
+                        }
+                        if (Input.GetAxisRaw("Left_Joystick_X") < 0f)
+                        {
+                            transform.position += new Vector3(-distance, 0, 0);
+                            spriteRenderer.sprite = leftSprite;
+                        }
+
                         canMove = false;
                     }
                     if (Mathf.Abs(Input.GetAxisRaw("Left_Joystick_Y")) >= 0.95f)
                     {
-                        transform.position += new Vector3(0, Input.GetAxisRaw("Left_Joystick_Y") * distance, 0);
-                        inputNumber = inputNumber + 1;
+                        if (Input.GetAxisRaw("Left_Joystick_Y") > 0f)
+                        {
+                            transform.position += new Vector3(0, distance, 0);
+                            spriteRenderer.sprite = upSprite;
+                        }
+                        if (Input.GetAxisRaw("Left_Joystick_Y") < 0f)
+                        {
+                            transform.position += new Vector3(0, -distance, 0);
+                            spriteRenderer.sprite = downSprite;
+                        }
                         canMove = false;
                     }
+                }
+
+                if (treasure.GetComponent<WinOrLooseScript>().finished == true)
+                {
+                    canMove = false;
                 }
             }
         }

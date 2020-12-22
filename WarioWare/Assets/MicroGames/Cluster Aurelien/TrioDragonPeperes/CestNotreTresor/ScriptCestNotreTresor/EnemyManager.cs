@@ -15,6 +15,7 @@ namespace Dragons_Peperes
             public GameObject showInput;
 
             public GameObject enemy;
+            public GameObject lostScreen;
 
             [Space]
             [Header("Lieux de spawns pour les enemies")]
@@ -26,6 +27,7 @@ namespace Dragons_Peperes
 
             TimedBehaviour timedBehaviour;
 
+            public bool playerLost;
 
             public override void Start()
             {
@@ -37,6 +39,16 @@ namespace Dragons_Peperes
             public override void FixedUpdate()
             {
                 base.FixedUpdate(); //Do not erase this line!
+            }
+
+            public void Update()
+            {
+                if (playerLost)
+                {
+                    lostScreen.SetActive(true);
+                    //on arrete le temps
+                    
+                }
             }
 
             //TimedUpdate is called once every tick.
@@ -71,8 +83,15 @@ namespace Dragons_Peperes
 
                     if (Tick == 8)
                     {
-                        Debug.Log("Victoire");
-                        Testing.Manager.Instance.Result(true);
+                        if (playerLost)
+                        {
+                            YouLost();
+                        }
+                        else
+                        {
+                            Testing.Manager.Instance.Result(true);
+                        }
+                        
                     }
                 }
                     
@@ -113,8 +132,14 @@ namespace Dragons_Peperes
 
                     if (Tick == 8)
                     {
-                        Debug.Log("Victoire");
-                        Testing.Manager.Instance.Result(true);
+                        if (playerLost)
+                        {
+                            YouLost();
+                        }
+                        else
+                        {
+                            Testing.Manager.Instance.Result(true);
+                        }
                     }
                 }
                 #endregion
@@ -150,8 +175,14 @@ namespace Dragons_Peperes
 
                     if (Tick == 8)
                     {
-                        Debug.Log("Victoire");
-                        Testing.Manager.Instance.Result(true);
+                        if (playerLost)
+                        {
+                            YouLost();
+                        }
+                        else
+                        {
+                            Testing.Manager.Instance.Result(true);
+                        }
                     }
                 }
                 #endregion

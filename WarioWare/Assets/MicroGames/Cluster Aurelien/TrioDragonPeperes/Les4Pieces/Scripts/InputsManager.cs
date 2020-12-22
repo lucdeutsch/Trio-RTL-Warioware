@@ -128,7 +128,7 @@ namespace Dragons_Peperes
 
                     if (isSpot2)
                     {
-                        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
                         {
                             if (coin1OnSpot2)
                             {
@@ -268,7 +268,7 @@ namespace Dragons_Peperes
 
                     if (isSpot4)
                     {
-                        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+                        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
                         {
                             if (coin1OnSpot4)
                             {
@@ -342,9 +342,10 @@ namespace Dragons_Peperes
 
             private void OnTriggerEnter2D(Collider2D collision)
             {
+                #region Where are those coins
 
                 #region Check where is Coin1
-                if((collision.name == "Coin_1(Clone)") && (isSpot1))
+                if ((collision.name == "Coin_1(Clone)") && (isSpot1))
                 {
                     coin1OnSpot1 = true;
                 }
@@ -439,8 +440,99 @@ namespace Dragons_Peperes
 
                 }
                 #endregion
+
+                #region Check where is CoinHard1
+                if ((collision.name == "CoinHard_1(Clone)") && (isSpot1))
+                {
+                    coin1OnSpot1 = true;
+                }
+
+                if ((collision.name == "CoinHard_1(Clone)") && (isSpot2))
+                {
+                    coin1OnSpot2 = true;
+                }
+
+                if ((collision.name == "CoinHard_1(Clone)") && (isSpot3))
+                {
+                    coin1OnSpot3 = true;
+                }
+
+                if ((collision.name == "CoinHard_1(Clone)") && (isSpot4))
+                {
+                    coin1OnSpot4 = true;
+                }
+
+                #endregion
+
+                #region Check where is CoinHard2
+                if ((collision.name == "CoinHard_2(Clone)") && (isSpot1))
+                {
+                    coin2OnSpot1 = true;
+                }
+
+                if ((collision.name == "CoinHard_2(Clone)") && (isSpot2))
+                {
+                    coin2OnSpot2 = true;
+                }
+
+                if ((collision.name == "CoinHard_2(Clone)") && (isSpot3))
+                {
+                    coin2OnSpot3 = true;
+                }
+
+                if ((collision.name == "CoinHard_2(Clone)") && (isSpot4))
+                {
+                    coin2OnSpot4 = true;
+                }
+                #endregion
+
+                #region Check where is CoinHard3
+                if ((collision.name == "CoinHard_3(Clone)") && (isSpot1))
+                {
+                    coin3OnSpot1 = true;
+                }
+
+                if ((collision.name == "CoinHard_3(Clone)") && (isSpot2))
+                {
+                    coin3OnSpot2 = true;
+                }
+
+                if ((collision.name == "CoinHard_3(Clone)") && (isSpot3))
+                {
+                    coin3OnSpot3 = true;
+                }
+
+                if ((collision.name == "CoinHard_2(Clone)") && (isSpot4))
+                {
+                    coin3OnSpot4 = true;
+                }
+                #endregion
+
+                #region Check where is CoinHard4
+                if ((collision.name == "CoinHard_3(Clone)") && (isSpot1))
+                {
+                    coin4OnSpot1 = true;
+                }
+
+                if ((collision.name == "CoinHard_3(Clone)") && (isSpot2))
+                {
+                    coin4OnSpot2 = true;
+                }
+
+                if ((collision.name == "CoinHard_3(Clone)") && (isSpot3))
+                {
+                    coin4OnSpot3 = true;
+                }
+
+                if ((collision.name == "CoinHard_2(Clone)") && (isSpot4))
+                {
+                    coin4OnSpot4 = true;
+                }
+                #endregion
+                #endregion
             }
         }
-        
+
+    
     }
 }

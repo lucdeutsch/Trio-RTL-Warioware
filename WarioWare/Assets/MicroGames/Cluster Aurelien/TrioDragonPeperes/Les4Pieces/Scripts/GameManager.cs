@@ -19,6 +19,11 @@ namespace Dragons_Peperes
 
             public GameObject fourthSpot;
 
+            public GameObject winScreen;
+            public GameObject lostScreen;
+
+            bool playerLost;
+            bool playerWon;
 
             public override void Start()
             {
@@ -71,7 +76,15 @@ namespace Dragons_Peperes
                     if(Tick == 8)
                     {
                         //le joueur n'a pas trouvé la bonne pièce à temps, il loose
-                        YouLost();
+                        if (playerWon)
+                        {
+                            Testing.Manager.Instance.Result(true);
+                        }
+
+                        if(playerLost)
+                        {
+                            Testing.Manager.Instance.Result(false);
+                        }
                     }
                 }
                 #endregion
@@ -105,7 +118,15 @@ namespace Dragons_Peperes
                     if (Tick == 8)
                     {
                         //le joueur n'a pas trouvé la bonne pièce à temps, il loose
-                        YouLost();
+                        if (playerWon)
+                        {
+                            Testing.Manager.Instance.Result(true);
+                        }
+
+                        if (playerLost)
+                        {
+                            Testing.Manager.Instance.Result(false);
+                        }
                     }
                 }
 
@@ -139,7 +160,15 @@ namespace Dragons_Peperes
                     if (Tick == 8)
                     {
                         //le joueur n'a pas trouvé la bonne pièce à temps, il loose
-                        YouLost();
+                        if (playerWon)
+                        {
+                            Testing.Manager.Instance.Result(true);
+                        }
+
+                        if (playerLost)
+                        {
+                            Testing.Manager.Instance.Result(false);
+                        }
                     }
                 }
 
@@ -148,12 +177,17 @@ namespace Dragons_Peperes
 
             public void YouWIn()
             {
-                Testing.Manager.Instance.Result(true);
+                //ptite bool pour signifier la victoire
+                playerWon = true;
+                //boom winScreen
+                winScreen.SetActive(true);
             }
 
             public void YouLost()
             {
-                Testing.Manager.Instance.Result(false);
+                playerLost = false;
+                //boom looseScreen
+                lostScreen.SetActive(true);
             }
         }
     }
