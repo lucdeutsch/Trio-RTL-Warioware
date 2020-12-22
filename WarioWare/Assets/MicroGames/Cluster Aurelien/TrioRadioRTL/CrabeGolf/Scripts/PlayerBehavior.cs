@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Testing;
 
 namespace RadioRTL
 {
@@ -22,7 +21,7 @@ namespace RadioRTL
 
             private void Start()
             {
-                animator = GetComponent<Animator>();
+                animator = GetComponent<Animator>();     
             }
 
             void Update()
@@ -37,7 +36,6 @@ namespace RadioRTL
                     else if (Input.GetButtonUp("A_Button") && strikeUnlock && !hit)
                     {                        
                         animator.SetBool("Shoot", true);
-                        FindObjectOfType<AudioManager>().Play("Coup de Golf");
                         strikeUnlock = false;
                         StartCoroutine(ResetHit());
                     }
@@ -72,8 +70,7 @@ namespace RadioRTL
                             cpb.isShot = true;
                             canShoot = false;
                             animator.SetBool("Lose", true);
-                            FindObjectOfType<AudioManager>().Play("Défaite");
-                    }
+                        }
                     
                 }
                 
