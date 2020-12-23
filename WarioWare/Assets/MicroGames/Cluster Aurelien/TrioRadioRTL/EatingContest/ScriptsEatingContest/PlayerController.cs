@@ -13,6 +13,14 @@ namespace TrioRadioRTL
     {
         public class PlayerController : MonoBehaviour
         {
+            public AudioSource mySource;
+
+            [Header("Sound Effects")]
+            public AudioClip finishPlateAudio;
+            public AudioClip chompAudio;
+            public AudioClip badPlateAudio;
+            public AudioClip SwitchPlateAudio;
+            public AudioClip winAudio;
 
             [Header ("Parameters")]
             public int chomp; //the number of chomps the player has currently had
@@ -68,6 +76,8 @@ namespace TrioRadioRTL
                 {
                     if (movePlate)
                     {
+                        mySource.clip = SwitchPlateAudio;
+                        mySource.Play();
                         platesManager.transform.position += Vector3.right * speed * Time.deltaTime;
                         if (platesManager.transform.position.x >= 0)
                         {
@@ -79,12 +89,16 @@ namespace TrioRadioRTL
                         if (/*Input.GetButtonDown("A_Button")*/Input.GetKeyDown("e"))
                         {
                             chomp += 1;
+                            mySource.clip = chompAudio;
+                            mySource.Play();
                         }
 
                         if (chomp == numberOfChomps && numberOfPlates != 0) //if the player eats everything in the plate
                         {
                             chomp = 0;
                             numberOfPlates -= 1;
+                            mySource.clip = chompAudio;
+                            mySource.Play();
                             NextPlate(); //Changing Plates
                         }
                         if (Input.GetKeyDown("a"))
@@ -102,6 +116,8 @@ namespace TrioRadioRTL
                         }
                         if (Input.GetButtonDown("A_Button")|| Input.GetKeyDown("e"))
                         {
+                            mySource.clip = badPlateAudio;
+                            mySource.Play();
                             win = false;
                         }
                     }
@@ -134,6 +150,8 @@ namespace TrioRadioRTL
 
             void EndMinigame()//ending the mini game
             {
+                mySource.clip = winAudio;
+                mySource.Play();
                 win = true;
                 
             }
