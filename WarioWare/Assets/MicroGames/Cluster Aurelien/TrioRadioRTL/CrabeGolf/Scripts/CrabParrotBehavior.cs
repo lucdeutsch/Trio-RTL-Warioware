@@ -15,6 +15,7 @@ namespace RadioRTL
 
         public class CrabParrotBehavior : TimedBehaviour
         {
+
             private Vector3 target;
             public float speed;
             private Vector3 position;
@@ -33,7 +34,6 @@ namespace RadioRTL
             {
                 float step = (speed * Time.deltaTime / 2 )* bpm;
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
-                FindObjectOfType<AudioManager>().Play("Déplacement Crabe");
 
                 if (gameObject.transform.position == target)
                 {
@@ -47,7 +47,6 @@ namespace RadioRTL
                     {
                         target = new Vector3(Random.Range(-8f, 8f), 3f, 0f);
                         isFlying = true;
-                        FindObjectOfType<AudioManager>().Play("Frappe Perroquet");
                     }
 
                     speed = 0.5f;
