@@ -508,7 +508,7 @@ MonoBehaviour:
   - name: Bateau qui coule
     clip: {fileID: 8300000, guid: 720c1fdd91c9ae440a09b33947a22e4c, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 1.5
     loop: 0
     source: {fileID: 0}
   - name: Musique 60 BPM
@@ -533,6 +533,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 63854cc34302bbf46ac47e6c0e0c5602, type: 3}
     volume: 1
     pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Vole Perroquet
+    clip: {fileID: 8300000, guid: a86b287319b3873479c72066eaba4740, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   gestionSon: {fileID: 940654510}

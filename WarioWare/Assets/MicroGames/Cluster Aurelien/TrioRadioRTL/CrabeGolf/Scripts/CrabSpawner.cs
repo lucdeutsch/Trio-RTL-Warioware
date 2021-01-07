@@ -60,28 +60,7 @@ namespace RadioRTL
                 if (Tick == 2)
                 {
                     NormalCrabBehaviour currentCrab = Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity).GetComponent<NormalCrabBehaviour>();
-                    /*
-                    if (CP < numberCP)
-                    {
-                        typeCrab = Random.Range(0, 2);
-                    }
-                    else
-                    {
-                        typeCrab = 1;
-                    }
 
-                    if (typeCrab == 1)
-                    {
-                        NormalCrabBehaviour currentCrab = Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity).GetComponent<NormalCrabBehaviour>();
-
-                    }
-                    else if (typeCrab == 0)
-                    {
-                        Instantiate(crabParrot, new Vector3(-8, -3, 0), Quaternion.identity);
-                        CP += 1;
-
-                    }
-                    */
                 }
                 if (Tick == 3)
                 {
