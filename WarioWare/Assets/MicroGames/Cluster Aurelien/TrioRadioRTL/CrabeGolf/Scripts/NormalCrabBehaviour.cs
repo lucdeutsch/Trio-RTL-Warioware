@@ -30,6 +30,7 @@ namespace RadioRTL
             {
                 float step = (speed * Time.deltaTime / 2 )* bpm;
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
+                FindObjectOfType<AudioManager>().Play("Déplacement Crabe");
 
                 if (gameObject.transform.position == target)
                 {
