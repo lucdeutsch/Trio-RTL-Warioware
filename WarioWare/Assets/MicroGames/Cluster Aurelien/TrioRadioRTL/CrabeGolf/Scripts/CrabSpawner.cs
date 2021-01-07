@@ -59,6 +59,8 @@ namespace RadioRTL
 
                 if (Tick == 2)
                 {
+                    NormalCrabBehaviour currentCrab = Instantiate(crab, new Vector3(-8, -3, 0), Quaternion.identity).GetComponent<NormalCrabBehaviour>();
+                    /*
                     if (CP < numberCP)
                     {
                         typeCrab = Random.Range(0, 2);
@@ -79,7 +81,7 @@ namespace RadioRTL
                         CP += 1;
 
                     }
-
+                    */
                 }
                 if (Tick == 3)
                 {

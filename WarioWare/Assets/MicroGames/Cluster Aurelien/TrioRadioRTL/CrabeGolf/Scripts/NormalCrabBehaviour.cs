@@ -17,6 +17,7 @@ namespace RadioRTL
             private Vector3 position;
             public bool isShot;
             bool isFlying;
+            int collisionState;
 
             public override void Start()
             {
@@ -28,12 +29,27 @@ namespace RadioRTL
 
             void Update()
             {
-                float step = (speed * Time.deltaTime / 2 )* bpm;
+                float step = (speed * Time.deltaTime)* bpm;
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
                 FindObjectOfType<AudioManager>().Play("Déplacement Crabe");
 
                 if (gameObject.transform.position == target)
                 {
+                    switch (collisionState)
+                    {
+                        case 1:
+                            FindObjectOfType<AudioManager>().Play("Explosion Bateau");
+
+                            break;
+                        case 2:
+                            FindObjectOfType<AudioManager>().Play("Crabe dans l'eau");
+                            break;
+
+                        case 3:
+                            FindObjectOfType<AudioManager>().Play("Crabe dans le ciel");
+                            break;
+                    }
+
                     if (!isShot)
                     {
                         CrabSpawner.cs.lose = true;
@@ -46,11 +62,30 @@ namespace RadioRTL
                 {
                     if (!isFlying)
                     {
-                        target = new Vector3(Random.Range(-8f, 8f), 3f, 0f);
+                        target = new Vector3(Random.Range(-8f, 8f), Random.Range(2f,5f), 0f);
                         isFlying = true;
                     }
 
                     speed = 0.5f;
+                }
+            }
+            private void OnTriggerEnter2D(Collider2D collision)
+            {
+                Debug.Log("test");
+                if (collision.name == ("Collider Bateau"))
+                {
+                    collisionState = 1;
+                    Debug.Log("bateau");
+                }
+                if (collision.name == ("Collider Mer") && collisionState == 0)
+                {
+                    collisionState = 2;
+                    Debug.Log("mer");
+                }
+                if (collision.name == ("Collider Ciel") && collisionState != 1)
+                {
+                    collisionState = 3;
+                    Debug.Log("ciel");
                 }
             }
         }
