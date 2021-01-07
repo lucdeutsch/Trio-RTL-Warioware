@@ -61,7 +61,6 @@ namespace RadioRTL
                 if (isShot)
                 {
                     CrabSpawner.cs.lose = true;
-                    FindObjectOfType<AudioManager>().Play("Frappe Perroquet");
                     if (!isFlying)
                     {
                         target = new Vector3(Random.Range(-8f, 8f),Random.Range(2f, 5f), 0f);
