@@ -37,7 +37,6 @@ namespace RadioRTL
                     else if (Input.GetButtonUp("A_Button") && strikeUnlock && !hit)
                     {                        
                         animator.SetBool("Shoot", true);
-                        FindObjectOfType<AudioManager>().Play("Coup de Golf");
                         strikeUnlock = false;
                         StartCoroutine(ResetHit());
                     }
@@ -66,15 +65,23 @@ namespace RadioRTL
                         if (ncb != null)
                         {
                             ncb.isShot = true;
+                            FindObjectOfType<AudioManager>().Play("Coup de Golf");
                         }
                         else if (cpb != null)
                         {
                             cpb.isShot = true;
+                            FindObjectOfType<AudioManager>().Play("Frappe Perroquet");
                             canShoot = false;
-                            animator.SetBool("Lose", true);
-                            FindObjectOfType<AudioManager>().Play("Défaite");
+                            StartCoroutine(Lose());
+
+                        }
+                    IEnumerator Lose()
+                    {
+                        yield return new WaitForSeconds(1);
+                        animator.SetBool("Lose", true);
+                        FindObjectOfType<AudioManager>().Play("Défaite");
                     }
-                    
+
                 }
                 
             }
