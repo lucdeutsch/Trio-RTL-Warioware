@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2920304919071724466}
   - component: {fileID: 2920304919071724461}
   - component: {fileID: 4426822509023849127}
+  - component: {fileID: -1803295003719379373}
   m_Layer: 0
   m_Name: NormalCrab
   m_TagString: Untagged
@@ -100,7 +101,7 @@ MonoBehaviour:
   currentDifficulty: 0
   timer: 0
   currentTime: 0
-  speed: 0.2
+  speed: 0.1
   isShot: 0
 --- !u!61 &2920304919071724461
 BoxCollider2D:
@@ -225,3 +226,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &-1803295003719379373
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920304919071724460}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
