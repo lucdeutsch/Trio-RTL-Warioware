@@ -160,7 +160,7 @@ MonoBehaviour:
     type: 3}
   easySpeed: 0.1
   mediumSpeed: 0.1
-  hardSpeed: 0.07
+  hardSpeed: 0.05
   easyCP: 1
   mediumCP: 2
   hardCP: 2
