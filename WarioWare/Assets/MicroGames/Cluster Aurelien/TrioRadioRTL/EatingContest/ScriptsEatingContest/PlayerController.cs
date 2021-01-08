@@ -118,7 +118,7 @@ namespace TrioRadioRTL
                     }
                     if (!rottenPlate) //plate isn't rotten
                     {
-                        if (/*Input.GetButtonDown("A_Button")*/Input.GetKeyDown("e"))
+                        if (Input.GetButtonDown("A_Button")/* || Input.GetKeyDown("e")*/)
                         {
                             chomp += 1;
                             mySource.clip = chompAudio;
@@ -133,7 +133,7 @@ namespace TrioRadioRTL
                             mySource.Play();
                             NextPlate(); //Changing Plates
                         }
-                        if (Input.GetKeyDown("a")|| Input.GetButtonDown("X_Button"))
+                        if (/*Input.GetKeyDown("a")||*/ Input.GetButtonDown("X_Button"))
                         {
                             print("poop");
                             chomp = 0;
@@ -143,14 +143,14 @@ namespace TrioRadioRTL
                     }
                     else if (rottenPlate)//plate is rotten
                     {
-                        if (Input.GetButtonDown("X_Button") || Input.GetKeyDown("a"))
+                        if (Input.GetButtonDown("X_Button") /*|| Input.GetKeyDown("a")*/)
                         {
                             Debug.Log("WTFFFFFFFFFFF");
                             numberOfRottenPlates -= 1;
                             NextPlate();
                             
                         }
-                        if (Input.GetButtonDown("A_Button")|| Input.GetKeyDown("e"))
+                        if (Input.GetButtonDown("A_Button")/*|| Input.GetKeyDown("e")*/)
                         {
                             mySource.clip = badPlateAudio;
                             mySource.Play();
@@ -229,7 +229,7 @@ namespace TrioRadioRTL
             }
             void NextPlate()//changing the plate once its empty
             {
-                PrintQueue();
+                //PrintQueue();
                 platesManager.transform.position = basePosition;
 
 
