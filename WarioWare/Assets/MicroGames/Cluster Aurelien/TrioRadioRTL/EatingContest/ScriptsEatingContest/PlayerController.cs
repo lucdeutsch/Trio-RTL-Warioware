@@ -29,6 +29,7 @@ namespace TrioRadioRTL
             public int numberOfChomps; //the number of chomps required to finish a plate
             public int numberOfPlates; //the number of plates the player need to eat to finish the mini game
             public int totalPlates;
+            int basePlates;
             public int numberOfRottenPlates; //the number of rotten plates the player will need to avoid
 
             public bool rottenPlate = false; //the state of the current plate
@@ -64,11 +65,12 @@ namespace TrioRadioRTL
             [HideInInspector]
             public bool win;
             public float speed;
-            bool movePlate = true;
+            public bool movePlate = true;
             public GameObject platesManager;
             // Start is called before the first frame update
             void Start()
             {
+                
                 platesFullStackDisplay = gameObject.GetComponent<SpriteRenderer>();
 
                 basePosition = transform.position;
@@ -91,7 +93,7 @@ namespace TrioRadioRTL
                     numberOfPlates = numberOfPlatesHard;
                     numberOfRottenPlates = rottenPlatesHard;
                 }
-                
+                basePlates = numberOfRottenPlates + numberOfPlates;
                 PopulateQueue();
                 NextPlate();
             }
@@ -101,7 +103,7 @@ namespace TrioRadioRTL
             {
                 totalPlates = numberOfPlates + numberOfRottenPlates;
 
-                if (numberOfPlates > 0)
+                if (totalPlates > 0)
                 {
                     if (movePlate)
                     {
@@ -143,8 +145,10 @@ namespace TrioRadioRTL
                     {
                         if (Input.GetButtonDown("X_Button") || Input.GetKeyDown("a"))
                         {
-
+                            Debug.Log("WTFFFFFFFFFFF");
+                            numberOfRottenPlates -= 1;
                             NextPlate();
+                            
                         }
                         if (Input.GetButtonDown("A_Button")|| Input.GetKeyDown("e"))
                         {
@@ -164,7 +168,7 @@ namespace TrioRadioRTL
                 }
 
 
-                switch (totalPlates)
+                switch (totalPlates-1)
                 {
                     case 0:
                         platesFullStackDisplay.sprite = null;
@@ -188,7 +192,7 @@ namespace TrioRadioRTL
                         break;
                 }
 
-                switch (4-(totalPlates))
+                switch (basePlates-(totalPlates))
                 {
                     case 0:
                         platesEmptyStackDisplay.sprite = null;
@@ -228,15 +232,15 @@ namespace TrioRadioRTL
                 PrintQueue();
                 platesManager.transform.position = basePosition;
 
-                
 
+                movePlate = true;
                 if (platesQueue.Count == 0)
                     return;
-                movePlate = true;
+
 
                 rottenPlate = !platesQueue.First();
 
-                numberOfRottenPlates -= (rottenPlate == false ? 1 : 0);
+                //numberOfRottenPlates -= (rottenPlate == true ? 1 : 0);
                 platesQueue.RemoveAt(0);
 
                 //if (Random.Range(0,numberOfRottenPlates) != 0)
