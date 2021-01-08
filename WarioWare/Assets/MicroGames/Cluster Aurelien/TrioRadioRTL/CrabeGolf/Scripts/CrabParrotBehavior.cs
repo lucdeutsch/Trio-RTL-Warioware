@@ -21,6 +21,7 @@ namespace RadioRTL
             public bool isShot;
             bool isFlying;
             int collisionState;
+            AudioSource volePerroquet;
 
             public override void Start()
             {
@@ -34,7 +35,7 @@ namespace RadioRTL
             {
                 float step = (speed * Time.deltaTime)* bpm;
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
-                FindObjectOfType<AudioManager>().Play("Déplacement Crabe");
+                volePerroquet = GetComponent<AudioSource>();
 
                 if (gameObject.transform.position == target)
                 {
