@@ -19,10 +19,12 @@ namespace RadioRTL
             //1.1- Game Objects
             public GameObject teaCup;
             public GameObject teaPot;
+            public GameObject guirlande;
 
             //1.2- Int
             public int difficultyTeaPotSpeed;
             public int difficultyMouvementTeaCup;
+
 
             public override void Start()
             {
@@ -44,25 +46,37 @@ namespace RadioRTL
 
                     case Difficulty.EASY:
 
-                        teaPotController.teaPotSpeed = 30;
+                        teaPotController.teaPotSpeed = 10;
 
                         teaCupManager.mouvementTeaCupX = 2;
+
+                        teaPot.transform.position = new Vector3(-2f, 0f, 0.0f);
+
+                        guirlande.transform.position = new Vector3(0f, -4.2f, 0f);
 
                         break;
 
                     case Difficulty.MEDIUM:
 
-                        teaPotController.teaPotSpeed = 30;
+                        teaPotController.teaPotSpeed = 5;
 
                         teaCupManager.mouvementTeaCupX = 3;
+
+                        teaPot.transform.position = new Vector3(-2f, 1.5f, 0.0f);
+
+                        guirlande.transform.position = new Vector3(0f, -2.7f, 0f);
 
                         break;
 
                     case Difficulty.HARD:
 
-                        teaPotController.teaPotSpeed = 30;
+                        teaPotController.teaPotSpeed = 20;
 
                         teaCupManager.mouvementTeaCupX = 4;
+
+                        teaPot.transform.position = new Vector3(-2f, 3f, 0.0f);
+
+                        guirlande.transform.position = new Vector3(0f, -1.4f, 0f);
 
                         break;
 

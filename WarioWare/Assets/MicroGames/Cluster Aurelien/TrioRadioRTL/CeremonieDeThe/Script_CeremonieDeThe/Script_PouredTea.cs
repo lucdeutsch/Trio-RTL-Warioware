@@ -61,18 +61,19 @@ namespace RadioRTL
             {
 
                 isTouchingCup = true;
-                //Debug.Log(isTouchingCup);
+                pouredTea += 1;
+                Destroy(waterCollider.gameObject);
 
             }
 
             //3.2- Verification on Enter
-            private void OnTriggerExit2D(Collider2D waterCollider)
+            /*private void OnTriggerExit2D(Collider2D waterCollider)
             {
 
                 isTouchingCup = false;
                 //Debug.Log(isTouchingCup);
 
-            }
+            }*/
 
             //4- FixedUpdate is called on a fixed time
             public override void FixedUpdate()
@@ -83,7 +84,8 @@ namespace RadioRTL
                 if (isTouchingCup == true)
                 {
 
-                    pouredTea = pouredTea + 1;
+                    //pouredTea = pouredTea + 1;
+                    //Debug.Log(pouredTea);
 
                     //4.1.1- Activation des niveaux d'eau
                     if (pouredTea > quantityLevel && pouredTea <= (quantityLevel * 2))
