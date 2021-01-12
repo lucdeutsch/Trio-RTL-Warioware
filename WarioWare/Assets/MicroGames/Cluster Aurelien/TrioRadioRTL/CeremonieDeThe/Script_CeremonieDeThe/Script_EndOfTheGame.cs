@@ -17,40 +17,63 @@ namespace RadioRTL
 
             //1- Variables
             //1.1- Game Object & Collider
-            public GameObject teaCup;
+            public Script_PouredTea teaCup;
             public Collider2D teaPotCollider;
+
 
             //1.2- Booléennes & int
             bool cupIsFull;
-            bool potIsInZone = false;
             int cupQuantity;
-			public int waterToVictory = 100;
+			public int waterToVictory;
 
             //2- Récupération des donné
             public override void Start()
             {
                 base.Start(); //Do not erase this line!
 
-                //2.1- Les données à récup
-                Script_PouredTea pouredTeaScript = teaCup.GetComponent<Script_PouredTea>();
-                cupQuantity = pouredTeaScript.pouredTea;
+                switch (currentDifficulty)
+                {
 
-            }
+                    case (Difficulty.EASY):
 
-            //3- Verification des colliders
-            //3.1- Verification on Enter
-            private void OnTriggerEnter2D(Collider2D waterCollider)
-            {
+                        waterToVictory -= 0;
 
-                potIsInZone = true;
+                        break;
 
-            }
+                    case (Difficulty.MEDIUM):
 
-            //3.2- Verification on Enter
-            private void OnTriggerExit2D(Collider2D waterCollider)
-            {
+                        waterToVictory -= 6;
 
-                potIsInZone = false;
+                        break;
+
+                    case (Difficulty.HARD):
+
+                        waterToVictory -= 9;
+
+                        break;
+
+                }//60 90 120 140
+
+                switch (bpm)
+                {
+
+                    case (60):
+                        waterToVictory = 111;
+                        break;
+
+                    case (90):
+                        waterToVictory = 93;
+                        break;
+
+                    case (120):
+                        waterToVictory = 72;
+                        break;
+
+                    case (140):
+                        waterToVictory = 51;
+                        break;
+
+                }
 
             }
 
@@ -61,16 +84,23 @@ namespace RadioRTL
 
             }
 
-            //4- TimedUpdate is called once every tick.
+            //3- TimedUpdate is called once every tick.
             public override void TimedUpdate()
             {
 
-                //4.1- A la fin de la 8 tick
+                //Debug.Log(Tick);
+
+                //3.1- A la fin de la 8 tick
                 if (Tick == 8)
                 {
+                    Debug.LogError("end");
 
-                    //4.1.2- Verfication des conditions
-                    if ( cupQuantity <= waterToVictory && potIsInZone == true)
+                    cupQuantity = teaCup.pouredTea;
+
+                    Debug.Log(cupQuantity);
+
+                    //3.1.2- Verfication des conditions
+                    if ( cupQuantity >= waterToVictory)
                     {
 
                         Manager.Instance.Result(true);
