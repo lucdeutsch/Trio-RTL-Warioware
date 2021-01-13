@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-6233104652103510390
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CeremonieDeThe
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 0bc857c2468c080468f14bd5be6505e4
+  m_Children: []
+  m_Volume: 8c4e0769804fc7b4c909c517c897e5e7
+  m_Pitch: 409d3972c574b94438821d456792ae8b
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 834940381333752305}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-4337887708569740770
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -49,6 +68,7 @@ AudioMixerController:
     - aa3c7d46ac2bcd9458ed98330f3aad0a
     - cbbaa449d6d52ab4e99b4bdb6f992f6b
     - 4652cdcfced8da149b581d340c9a61b9
+    - 0bc857c2468c080468f14bd5be6505e4
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -64,6 +84,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: 3235592127009219732}
   - {fileID: 6228994028401498262}
+  - {fileID: -6233104652103510390}
   m_Volume: 5144e3854aa10b34cb92dd1f4e84a93c
   m_Pitch: df2a19b67b7409946a574ad018cfdde5
   m_Send: 00000000000000000000000000000000
@@ -98,6 +119,20 @@ AudioMixerSnapshotController:
   m_SnapshotID: bc6cc06e530b1cf43b0fcafd6ae3e9f2
   m_FloatValues: {}
   m_TransitionOverrides: {}
+--- !u!244 &834940381333752305
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 3af8450158f52c94ead82299c161b2fd
+  m_EffectName: Attenuation
+  m_MixLevel: 043f24b06b088d3488248b7600bc7f6d
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &3235592127009219732
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

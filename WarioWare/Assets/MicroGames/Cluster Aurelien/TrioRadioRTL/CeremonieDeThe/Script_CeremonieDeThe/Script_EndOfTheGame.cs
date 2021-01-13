@@ -106,7 +106,10 @@ namespace RadioRTL
                         Manager.Instance.Result(true);
                         Debug.LogError("victoire");
 
-                    }else
+                        FindObjectOfType<Script_SoundManager>().Play("Victoire", 0);
+
+                    }
+                    else
                     {
 
                         Manager.Instance.Result(false);
