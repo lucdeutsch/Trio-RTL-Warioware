@@ -15,7 +15,7 @@ namespace RadioRTL
         public class AudioManagerLucas : MonoBehaviour
         {
             public SoundsLucas[] sounds;
-            public AudioSource gestionSon;
+            public AudioSource[] gestionSon;
 
             private void Awake()
             {
@@ -29,11 +29,11 @@ namespace RadioRTL
                     s.source.loop = s.loop;
                 }
             }
-            public void Play(string name)
+            public void Play(string name,int index)
             {
                 SoundsLucas s = Array.Find(sounds, sound => sound.name == name);
                 s.source.Play();
-                gestionSon.clip = s.source.clip;
+                gestionSon[index].clip = s.source.clip;
             }
         }
     }
