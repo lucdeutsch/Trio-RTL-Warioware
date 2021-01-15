@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Testing;
 
-namespace TrioRadioRTL
+namespace RadioRTL
 {
     namespace EatingContest
     {

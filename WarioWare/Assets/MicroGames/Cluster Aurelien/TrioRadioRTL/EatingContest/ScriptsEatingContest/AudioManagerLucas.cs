@@ -32,8 +32,9 @@ namespace RadioRTL
             public void Play(string name,int index)
             {
                 SoundsLucas s = Array.Find(sounds, sound => sound.name == name);
-                s.source.Play();
+
                 gestionSon[index].clip = s.source.clip;
+                gestionSon[index].Play();
             }
         }
     }
