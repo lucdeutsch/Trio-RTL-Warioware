@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -158,8 +158,8 @@ MonoBehaviour:
     type: 3}
   normalCrabBehaviour: {fileID: 2920304919071724466, guid: ede4acfa78b6939428adb2307d7ad118,
     type: 3}
-  easySpeed: 0.1
-  mediumSpeed: 0.1
+  easySpeed: 0.05
+  mediumSpeed: 0.05
   hardSpeed: 0.05
   easyCP: 1
   mediumCP: 2
@@ -512,27 +512,27 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Musique 60 BPM
-    clip: {fileID: 8300000, guid: 536ebf4506e38b441ad274e1e8e80de8, type: 3}
+    clip: {fileID: 8300000, guid: 8b25e85ccb63ae944ab2b9e0a4faa19c, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Musique 90 BPM
-    clip: {fileID: 8300000, guid: 60a266a86955c1c4780328ec36f7f869, type: 3}
+    clip: {fileID: 8300000, guid: 3836940bee330b44fa0c04b792e2c876, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Musique 120 BPM
-    clip: {fileID: 8300000, guid: f4f87608548cb1c45ae7303c77e760ec, type: 3}
+    clip: {fileID: 8300000, guid: bd2b311fdca180d43b795be7c124cb77, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Musique 150 BPM
-    clip: {fileID: 8300000, guid: 63854cc34302bbf46ac47e6c0e0c5602, type: 3}
+  - name: Musique 140 BPM
+    clip: {fileID: 8300000, guid: f449ff42535214844aa26c0b9683302a, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Vole Perroquet
@@ -975,7 +975,7 @@ Transform:
   m_GameObject: {fileID: 1420726191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.32, z: 0}
-  m_LocalScale: {x: 1.8141593, y: 1.8141593, z: 1.8141593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1009,18 +1009,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.70495874, y: 0.20003483}
+  m_Offset: {x: -1.4446316, y: 0.22699928}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6719793, y: 0.012750453}
-    oldSize: {x: 1.2, y: 1.76}
+    pivot: {x: 0.7, y: 0.01}
+    oldSize: {x: 2.4, y: 3.6}
     newSize: {x: 1.2, y: 1.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.98249114, y: 0.6478433}
+  m_Size: {x: 0.85794747, y: 0.7017722}
   m_EdgeRadius: 0
 --- !u!212 &1420726195
 SpriteRenderer:
@@ -1061,7 +1061,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25e76bab4a54b7342bb0896d0007acd8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efc899989423ab0458c1c2d5ed9bf861, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1376,3 +1376,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &824826319493740924
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5338073697329982786, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_Name
+      value: Particule Frappe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.133789
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338073697329982797, guid: 84af1d3ddab004f4ba30a1183439b0d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 84af1d3ddab004f4ba30a1183439b0d2, type: 3}
