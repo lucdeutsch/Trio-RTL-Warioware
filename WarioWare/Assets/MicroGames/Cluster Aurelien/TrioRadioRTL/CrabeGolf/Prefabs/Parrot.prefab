@@ -130,6 +130,8 @@ MonoBehaviour:
   currentTime: 0
   speed: 0.05
   isShot: 0
+  exploPlume: {fileID: 7471892550995990999, guid: 6bff2c79c00772043b46a73372f8cbfa,
+    type: 3}
 --- !u!50 &1959262057476991304
 Rigidbody2D:
   serializedVersion: 4

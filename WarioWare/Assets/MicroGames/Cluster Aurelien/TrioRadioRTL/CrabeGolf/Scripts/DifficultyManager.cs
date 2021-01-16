@@ -31,19 +31,16 @@ namespace RadioRTL
                         //insérer la logique quand le jeu est facile
                         normalCrabBehaviour.speed = easySpeed;
                         crabParrotBehavior.speed = easySpeed;
-                        FindObjectOfType<AudioManager>().Play("Musique 60 BPM");
                         break;
                     case Difficulty.MEDIUM:
                         //insérer la logique quand le jeu est facile
                         normalCrabBehaviour.speed = mediumSpeed;
                         crabParrotBehavior.speed = mediumSpeed;
-                        FindObjectOfType<AudioManager>().Play("Musique 90 BPM");
                         break;
                     case Difficulty.HARD:
                         //insérer la logique quand le jeu est facile
                         normalCrabBehaviour.speed = hardSpeed;
                         crabParrotBehavior.speed = hardSpeed;
-                        FindObjectOfType<AudioManager>().Play("Musique 120 BPM");
                         break;
                 }
             }

@@ -18,6 +18,8 @@ namespace RadioRTL
             public bool isShot;
             bool isFlying;
             int collisionState;
+            public GameObject etoile;
+            public GameObject goutte;
 
             public override void Start()
             {
@@ -31,7 +33,12 @@ namespace RadioRTL
             {
                 float step = (speed * Time.deltaTime)* bpm;
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
-               // FindObjectOfType<AudioManager>().Play("Déplacement Crabe");
+
+                if (gameObject.transform.position.x >= 1.5f && !isShot)
+                {
+                    CrabSpawner.cs.lose = true;
+                    Debug.Log("perd");
+                }
 
                 if (gameObject.transform.position == target)
                 {
@@ -43,16 +50,13 @@ namespace RadioRTL
                             break;
                         case 2:
                             FindObjectOfType<AudioManager>().Play("Crabe dans l'eau");
+                            Instantiate(goutte, gameObject.transform.position, Quaternion.identity);
                             break;
 
                         case 3:
                             FindObjectOfType<AudioManager>().Play("Crabe dans le ciel");
+                            Instantiate(etoile, gameObject.transform.position, Quaternion.identity);
                             break;
-                    }
-
-                    if (!isShot)
-                    {
-                        CrabSpawner.cs.lose = true;
                     }
 
                     Destroy(gameObject);
