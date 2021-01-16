@@ -60,6 +60,7 @@ namespace RadioRTL
             public bool movePlate = true;
             public GameObject platesManager;
             int i = 0;
+            bool hasLost;
             // Start is called before the first frame update
             void Start()
             {
@@ -145,7 +146,8 @@ namespace RadioRTL
                         {
                             
                             win = false;
-                            FindObjectOfType<AudioManagerLucas>().Play("Lose", 1);
+                            hasLost = true;
+                            
                         }
                     }
                 }
@@ -265,14 +267,22 @@ namespace RadioRTL
 
             void EndMinigame()//ending the mini game
             {
-                
-                if (i == 0)
+                if (hasLost)
                 {
-                    FindObjectOfType<AudioManagerLucas>().Play("Win", 0);
-                    i += 1;
+                    win = false;
+                    FindObjectOfType<AudioManagerLucas>().Play("Lose", 1);
                 }
+                else
+                {
+                    if (i == 0)
+                    {
+                        FindObjectOfType<AudioManagerLucas>().Play("Win", 0);
+                        i += 1;
+                    }
 
-                win = true;
+                    win = true;
+                }
+                
                 
             }
         }
