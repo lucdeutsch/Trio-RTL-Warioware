@@ -20,6 +20,7 @@ namespace RadioRTL
             int collisionState;
             public GameObject etoile;
             public GameObject goutte;
+            public GameObject explosion;
 
             public override void Start()
             {
@@ -46,6 +47,7 @@ namespace RadioRTL
                     {
                         case 1:
                             FindObjectOfType<AudioManager>().Play("Explosion Bateau");
+                            Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
 
                             break;
                         case 2:

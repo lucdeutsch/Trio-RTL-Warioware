@@ -105,7 +105,9 @@ MonoBehaviour:
   speed: 0.05
   isShot: 0
   etoile: {fileID: 455418548044117863, guid: c8f8ba02562476f429246e529a1b95f1, type: 3}
-  goutte: {fileID: 1083941352412068060, guid: 3babd6a95c2886b4bb80610a2a41c50d, type: 3}
+  goutte: {fileID: 5639086100684087664, guid: 55911bfebe4067f46b74a4db4f2a4b91, type: 3}
+  explosion: {fileID: 2131053203680328520, guid: 08f767544aa2e9f4f8963e08b0eebe8e,
+    type: 3}
 --- !u!61 &2920304919071724461
 BoxCollider2D:
   m_ObjectHideFlags: 0
