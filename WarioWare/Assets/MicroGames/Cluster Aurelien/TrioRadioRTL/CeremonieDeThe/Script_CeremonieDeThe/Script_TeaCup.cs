@@ -49,7 +49,7 @@ namespace RadioRTL
                     if (isGoingLeft == true)
                     {
 
-                        //teaCupRigidbody.velocity = new Vector2(0, 0);
+                        FindObjectOfType<Script_SoundManager>().Play("BateauQuiTangue1", 3);
 
                         teaCupSpeedTimer += Time.fixedDeltaTime *3f;
 
@@ -69,13 +69,8 @@ namespace RadioRTL
                     //3.1.2- Mouvement vers la droite
                     else
                     {
-
-                        //teaCupRigidbody.velocity = new Vector2(0, 0);
-
-
-                        //mouvementTeaCup = new Vector2(mouvementTeaCupX, 0);
-
-                        //teaCupRigidbody.AddForce(mouvementTeaCup * teaCupSpeed);
+                       
+                        FindObjectOfType<Script_SoundManager>().Play("BateauQuiTangue2", 3);
 
                         teaCupSpeedTimer += Time.fixedDeltaTime *3f;
 
@@ -94,8 +89,7 @@ namespace RadioRTL
                     }
 
                     Vector2 targetVector = mouvementTeaCup * currentTeaCupSpeed;
-                    //Debug.Log("targetVector= " + targetVector);
-                    //teaCupRigidbody.AddForce(targetVector , ForceMode2D.Force);
+
                     teaCupRigidbody.velocity = targetVector;
 
                 }

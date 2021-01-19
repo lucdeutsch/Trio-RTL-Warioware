@@ -49,6 +49,8 @@ namespace RadioRTL
                     Instantiate(waterDrop, spawner.position, Quaternion.identity);
 
                     currentCoolDown = coolDown;
+                    
+                    FindObjectOfType<Script_SoundManager>().Play("EauQuiCoule", 2);
 
                 }
 

@@ -20,18 +20,20 @@ namespace RadioRTL
             public Script_PouredTea teaCup;
             public Collider2D teaPotCollider;
 
-
             //1.2- Booléennes & int
             bool cupIsFull;
             int cupQuantity;
 			public int waterToVictory;
+
+            //1.3- Sprites
+            public SpriteRenderer princess;
 
             //2- Récupération des donné
             public override void Start()
             {
                 base.Start(); //Do not erase this line!
 
-                switch (currentDifficulty)
+                /*switch (currentDifficulty)
                 {
 
                     case (Difficulty.EASY):
@@ -52,28 +54,35 @@ namespace RadioRTL
 
                         break;
 
-                }//60 90 120 140
+                }*/
 
                 switch (bpm)
                 {
 
                     case (60):
                         waterToVictory = 111;
+                        FindObjectOfType<Script_SoundManager>().Play("Musique 60", 0);
                         break;
 
-                    case (90):
+                    case (80):
                         waterToVictory = 93;
+                        FindObjectOfType<Script_SoundManager>().Play("Musique 80", 0);
+                        break;
+
+                    case (100):
+                        waterToVictory = 72;
+                        FindObjectOfType<Script_SoundManager>().Play("Musique 100", 0);
                         break;
 
                     case (120):
-                        waterToVictory = 72;
-                        break;
-
-                    case (140):
                         waterToVictory = 51;
+                        FindObjectOfType<Script_SoundManager>().Play("Musique 120", 0);
                         break;
 
                 }
+
+                //2.2- Désactive le sprite de la princesse
+                this.princess.enabled = false;
 
             }
 
@@ -88,6 +97,13 @@ namespace RadioRTL
             public override void TimedUpdate()
             {
 
+                if (cupQuantity >= waterToVictory)
+                {
+
+                    princess.enabled = true;
+
+                }
+
                 //Debug.Log(Tick);
 
                 //3.1- A la fin de la 8 tick
@@ -99,22 +115,24 @@ namespace RadioRTL
 
                     Debug.Log(cupQuantity);
 
-                    //3.1.2- Verfication des conditions
-                    if ( cupQuantity >= waterToVictory)
-                    {
+                //3.1.2- Verfication des conditions
+                if ( cupQuantity >= waterToVictory)
+                {
 
-                        Manager.Instance.Result(true);
-                        Debug.LogError("victoire");
+                    Manager.Instance.Result(true);
+                    Debug.LogError("victoire");
 
-                        FindObjectOfType<Script_SoundManager>().Play("Victoire", 0);
+                    FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
 
-                    }
-                    else
-                    {
+                }
+                else
+                {
 
-                        Manager.Instance.Result(false);
-                        Debug.LogError("defaite");
-                    }
+                     Manager.Instance.Result(false);
+                     Debug.LogError("defaite");
+
+                     FindObjectOfType<Script_SoundManager>().Play("Defaite", 1);
+                }
 
                 }
 

@@ -64,6 +64,8 @@ namespace RadioRTL
                 pouredTea += 1;
                 Destroy(waterCollider.gameObject);
 
+                FindObjectOfType<Script_SoundManager>().Play("EauDansUneTasse", 4);
+
             }
 
             //3.2- Verification on Enter

@@ -16,7 +16,7 @@ namespace RadioRTL
 
             //1- Initialisation des variables
             private Rigidbody2D teaPotRigidBody;
-            public int teaPotSpeed;
+            public int teaPotSpeed = 15;
             public Vector2 mouvementTeaPot;
             float moveHorizontal;
             float moveVertical;
@@ -34,13 +34,13 @@ namespace RadioRTL
 
                     case Difficulty.EASY:
 
-                        teaPotBoundary = 0f;
+                        teaPotBoundary = 1f;
 
                         break;
 
                     case Difficulty.MEDIUM:
 
-                        teaPotBoundary = 1.5f;
+                        teaPotBoundary = 1f;
 
                         break;
 
@@ -66,7 +66,7 @@ namespace RadioRTL
                 if (moveHorizontal > 0.15f || moveVertical > 0.15f || moveHorizontal < -0.15f || moveVertical < -0.15f) //Pour éviter les micormouvement parasite
                 {
 
-                    mouvementTeaPot = new Vector2(moveHorizontal, -moveVertical);
+                    mouvementTeaPot = new Vector2(moveHorizontal, moveVertical);
 
                     teaPotRigidBody.AddForce(mouvementTeaPot * teaPotSpeed);
 

@@ -35,6 +35,12 @@ namespace RadioRTL
                 Script_Sounds s = Array.Find(sounds, sound => sound.name == name);
                 s.source.Play();
                 gestionSon[index].clip = s.source.clip;
+
+                /*Element 0 musique
+                 Element 1 Victoire & defaite
+                Element 2 eau qui coule
+                Element 3 bateau qui tangue
+                Element 4 eau qui touche la tasse*/
             }
         }
     }
