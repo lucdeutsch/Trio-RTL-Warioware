@@ -16,7 +16,7 @@ namespace RadioRTL
 
             //1- Initialisation des variables
             private Rigidbody2D teaPotRigidBody;
-            public int teaPotSpeed = 15;
+            public int teaPotSpeed;
             public Vector2 mouvementTeaPot;
             float moveHorizontal;
             float moveVertical;

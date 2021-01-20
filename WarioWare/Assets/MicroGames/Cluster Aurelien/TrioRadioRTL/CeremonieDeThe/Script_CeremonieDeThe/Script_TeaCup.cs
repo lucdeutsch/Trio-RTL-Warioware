@@ -22,7 +22,7 @@ namespace RadioRTL
             public int mouvementTeaCupX;
             public float maxTeaCupSpeed;
             public float teaCupSpeedTimer;
-            public float teaCupTimeSwing = 1.5f;
+            public float teaCupTimeSwing;
 
             //2- Récupération du component et positionement de la Tea Cup
             public override void Start()
@@ -42,8 +42,8 @@ namespace RadioRTL
                 base.FixedUpdate(); //Do not erase this line!
 
                 //3.1- Un petit delay pour pas que ça commence directe
-                if (Tick > 1)
-                {
+                //if (Tick > 1)
+                //{
 
                     //3.1.1- Mouvement vers la gauche
                     if (isGoingLeft == true)
@@ -92,7 +92,7 @@ namespace RadioRTL
 
                     teaCupRigidbody.velocity = targetVector;
 
-                }
+                //}
 
             }
 

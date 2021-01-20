@@ -56,7 +56,7 @@ namespace RadioRTL
 
                     case Difficulty.MEDIUM:
 
-                        teaCupManager.mouvementTeaCupX = 4;
+                        teaCupManager.mouvementTeaCupX = 10;
 
                         teaPot.transform.position = new Vector3(-2f, 1.5f, 0.0f);
 
@@ -66,7 +66,7 @@ namespace RadioRTL
 
                     case Difficulty.HARD:
 
-                        teaCupManager.mouvementTeaCupX = 4;
+                        teaCupManager.mouvementTeaCupX = 10;
 
                         teaPot.transform.position = new Vector3(-2f, 2.75f, 0.0f);
 

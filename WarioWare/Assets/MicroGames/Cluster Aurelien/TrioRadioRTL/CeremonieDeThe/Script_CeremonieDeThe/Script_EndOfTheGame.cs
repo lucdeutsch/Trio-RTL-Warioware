@@ -60,22 +60,22 @@ namespace RadioRTL
                 {
 
                     case (60):
-                        waterToVictory = 111;
+                        waterToVictory = 102;
                         FindObjectOfType<Script_SoundManager>().Play("Musique 60", 0);
                         break;
 
                     case (80):
-                        waterToVictory = 93;
+                        waterToVictory = 81;
                         FindObjectOfType<Script_SoundManager>().Play("Musique 80", 0);
                         break;
 
                     case (100):
-                        waterToVictory = 72;
+                        waterToVictory = 60;
                         FindObjectOfType<Script_SoundManager>().Play("Musique 100", 0);
                         break;
 
                     case (120):
-                        waterToVictory = 51;
+                        waterToVictory = 42;
                         FindObjectOfType<Script_SoundManager>().Play("Musique 120", 0);
                         break;
 
