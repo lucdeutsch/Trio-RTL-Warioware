@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -170,6 +170,11 @@ MonoBehaviour:
   platesFull3: {fileID: 21300000, guid: cf06e73d3c655194799630abc8d8d91e, type: 3}
   platesFull2: {fileID: 21300000, guid: 04b04ca78623f0345bfbf1c284b994d1, type: 3}
   platesFull1: {fileID: 21300000, guid: cb512ccf69532264bb914a3d459ba0bc, type: 3}
+  platesFull5Dirty: {fileID: 21300000, guid: 128672e53a878684286c8d9aa3055249, type: 3}
+  platesFull4Dirty: {fileID: 21300000, guid: dcbc19ffcf235a7429e5c895cd29586e, type: 3}
+  platesFull3Dirty: {fileID: 21300000, guid: 2530c23fb9ea5024893f4fc63724dd84, type: 3}
+  platesFull2Dirty: {fileID: 21300000, guid: 5935cb4e419e47943a5d0d8da2dee8f5, type: 3}
+  platesFull1Dirty: {fileID: 21300000, guid: 67cdff79b2f91164ca993e6ddc581052, type: 3}
   platesEmptyStackDisplay: {fileID: 656713808}
   platesEmpty5: {fileID: 21300000, guid: c8ab71aa8adc3c0458f9cc465196c211, type: 3}
   platesEmpty4: {fileID: 21300000, guid: 012efdf37fc96734fa145bf77dc67aab, type: 3}
@@ -184,6 +189,7 @@ MonoBehaviour:
   platesManager: {fileID: 756993927}
   fireworks: {fileID: 851707871}
   tears: {fileID: 98361093}
+  isEating: 0
 --- !u!4 &25077194
 Transform:
   m_ObjectHideFlags: 0
@@ -501,7 +507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &482890795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +559,7 @@ GameObject:
   - component: {fileID: 586767181}
   - component: {fileID: 586767180}
   - component: {fileID: 586767179}
+  - component: {fileID: 586767182}
   m_Layer: 8
   m_Name: pirate
   m_TagString: Untagged
@@ -638,6 +645,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &586767182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586767178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2b7497b31de7041a360a9773b888b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pirateBase: {fileID: 21300000, guid: a9a42330ab792964ba879db564407d48, type: 3}
+  pirateEat: {fileID: 21300000, guid: e6cac02fa379496479a5cf7ecf8f3c47, type: 3}
+  isEating: 0
 --- !u!1 &612713877
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &612713878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1385,7 +1407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1104980989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2023,7 +2045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1445273928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2405,7 +2427,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 5.269989, y: 0}
   m_SizeDelta: {x: 20.532593, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2478,8 +2500,8 @@ RectTransform:
   m_Father: {fileID: 1828469095}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
