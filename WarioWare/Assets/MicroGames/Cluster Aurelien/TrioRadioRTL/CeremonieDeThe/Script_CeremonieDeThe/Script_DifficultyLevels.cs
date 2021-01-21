@@ -24,6 +24,7 @@ namespace RadioRTL
             //1.2- Int
             public int difficultyTeaPotSpeed;
             public int difficultyMouvementTeaCup;
+            public float difficultyMaxRotation;
 
 
             public override void Start()
@@ -39,6 +40,8 @@ namespace RadioRTL
                 Script_TeaCup teaCupManager = teaCup.GetComponent<Script_TeaCup>();
                 difficultyMouvementTeaCup = teaCupManager.mouvementTeaCupX;
 
+                difficultyMaxRotation = teaCupManager.maxRotationDegree;
+
 
                 //3- Niveau de difficulté
                 switch (currentDifficulty)
@@ -47,6 +50,8 @@ namespace RadioRTL
                     case Difficulty.EASY:
 
                         teaCupManager.mouvementTeaCupX = 0;
+
+                        teaCupManager.maxRotationDegree = 0f;
 
                         teaPot.transform.position = new Vector3(-2f, 0f, 0.0f);
 
@@ -58,6 +63,8 @@ namespace RadioRTL
 
                         teaCupManager.mouvementTeaCupX = 10;
 
+                        teaCupManager.maxRotationDegree = 2.5f;
+
                         teaPot.transform.position = new Vector3(-2f, 1.5f, 0.0f);
 
                         guirlande.transform.position = new Vector3(0f, -3.5f, 0f);
@@ -67,6 +74,8 @@ namespace RadioRTL
                     case Difficulty.HARD:
 
                         teaCupManager.mouvementTeaCupX = 10;
+
+                        teaCupManager.maxRotationDegree = 2.5f;
 
                         teaPot.transform.position = new Vector3(-2f, 2.75f, 0.0f);
 
