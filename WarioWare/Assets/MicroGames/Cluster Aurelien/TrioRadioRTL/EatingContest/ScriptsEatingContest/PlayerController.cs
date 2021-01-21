@@ -144,6 +144,8 @@ namespace RadioRTL
                                 platesQueue.Insert(0, true);
 
                                 NextPlate();
+                                hasLost = true;
+                                EndMinigame();
                             }
                         }
                         else if (rottenPlate)//plate is rotten
