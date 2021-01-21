@@ -470,7 +470,7 @@ MonoBehaviour:
   currentDifficulty: 0
   timer: 0
   currentTime: 0
-  teaPotSpeed: 15
+  teaPotSpeed: 1000
   mouvementTeaPot: {x: 0, y: 0}
 --- !u!4 &170615282
 Transform:
@@ -585,8 +585,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274167226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -0.151, z: -0.1}
-  m_LocalScale: {x: 0.7, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0.01, y: -0.18, z: -0.1}
+  m_LocalScale: {x: 0.85, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 2112921794}
   m_RootOrder: 1
@@ -616,8 +616,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463292644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.042, y: 0.006, z: -0.2}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 1}
+  m_LocalPosition: {x: 0.01, y: 0.1, z: -0.2}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1748715771}
   m_RootOrder: 1
@@ -960,31 +960,31 @@ MonoBehaviour:
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557662}
   - name: BateauQuiTangue2
     clip: {fileID: 8300000, guid: e06fb9bbc46114547af3956bd67f70b0, type: 3}
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557662}
   - name: Defaite
     clip: {fileID: 8300000, guid: 039393471eac53842bd55b855f221553, type: 3}
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557660}
   - name: EauDansUneTasse
     clip: {fileID: 8300000, guid: 987e55357a6115b4980a9779bd8aa7d8, type: 3}
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557661}
   - name: EauQuiCoule
     clip: {fileID: 8300000, guid: da1c69beda932384baa92f555dd6f488, type: 3}
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557663}
   - name: VaisselleQuiCogne
     clip: {fileID: 8300000, guid: b7be8ca4460f56d418b9b39975730876, type: 3}
     volume: 1
@@ -996,37 +996,31 @@ MonoBehaviour:
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557660}
   - name: Musique 60
     clip: {fileID: 8300000, guid: 2e95eebf178d19e47b72b88ec3150fb1, type: 3}
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557657}
   - name: Musique 80
     clip: {fileID: 8300000, guid: c0d23f70b4010d043a30d9cbc7a1602c, type: 3}
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557657}
   - name: Musique 100
     clip: {fileID: 8300000, guid: 4cffa35958a1ccf41b3ecfb23902fdd8, type: 3}
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
+    source: {fileID: 678557657}
   - name: Musique 120
     clip: {fileID: 8300000, guid: 670bd6055aa29594682082af0ff76e07, type: 3}
     volume: 1
     pitch: 0
     loop: 0
-    source: {fileID: 0}
-  gestionSon:
-  - {fileID: 678557657}
-  - {fileID: 678557660}
-  - {fileID: 678557663}
-  - {fileID: 678557662}
-  - {fileID: 678557661}
+    source: {fileID: 678557657}
 --- !u!4 &678557659
 Transform:
   m_ObjectHideFlags: 0
@@ -1345,7 +1339,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1619,8 +1613,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034368028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0.047, z: -0.1}
-  m_LocalScale: {x: 0.7, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0.01, y: 0.12, z: -0.1}
+  m_LocalScale: {x: 0.85, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 2112921794}
   m_RootOrder: 2
@@ -1916,9 +1910,9 @@ MonoBehaviour:
   currentTeaCupSpeed: 0
   mouvementTeaCup: {x: 0, y: 0}
   mouvementTeaCupX: 0
-  maxTeaCupSpeed: 0.5
+  maxTeaCupSpeed: 0.2
   teaCupSpeedTimer: 0
-  teaCupTimeSwing: 1.7
+  teaCupTimeSwing: 6
 --- !u!61 &1748715775
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1975,10 +1969,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_HorizontalAxis: Left_Joystick_X
+  m_VerticalAxis: Left_Joystick_Y
+  m_SubmitButton: A_Button
+  m_CancelButton: B_Button
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -2117,8 +2111,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052309077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.009999841, z: 0}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 1}
+  m_LocalPosition: {x: -0.25, y: 0.08, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1748715771}
   m_RootOrder: 0
@@ -2248,8 +2242,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097128026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -0.353, z: -0.1}
-  m_LocalScale: {x: 0.7, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0.01, y: -0.353, z: -0.1}
+  m_LocalScale: {x: 0.85, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 2112921794}
   m_RootOrder: 0

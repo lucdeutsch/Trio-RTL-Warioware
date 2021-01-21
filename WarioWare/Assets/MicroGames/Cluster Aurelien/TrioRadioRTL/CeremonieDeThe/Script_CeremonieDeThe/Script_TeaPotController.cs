@@ -68,14 +68,14 @@ namespace RadioRTL
 
                     mouvementTeaPot = new Vector2(moveHorizontal, moveVertical);
 
-                    teaPotRigidBody.AddForce(mouvementTeaPot * teaPotSpeed);
+                    teaPotRigidBody.AddForce(mouvementTeaPot * teaPotSpeed * Time.deltaTime);
 
                 }
                 else //pour éviter que le Tea-Pot continue de bouger si il y a 0 input
                 {
                     mouvementTeaPot = new Vector2(0.0f, 0.0f);
 
-                    teaPotRigidBody.AddForce(mouvementTeaPot * teaPotSpeed);
+                    teaPotRigidBody.AddForce(mouvementTeaPot * teaPotSpeed * Time.deltaTime);
                 }
 
             }

@@ -34,6 +34,7 @@ namespace RadioRTL
             {
 
                 coolDown = 1 / waterDropBySeconds;
+                FindObjectOfType<Script_SoundManager>().Play("EauQuiCoule", 2);
 
             }
 
@@ -50,7 +51,7 @@ namespace RadioRTL
 
                     currentCoolDown = coolDown;
                     
-                    FindObjectOfType<Script_SoundManager>().Play("EauQuiCoule", 2);
+
 
                 }
 

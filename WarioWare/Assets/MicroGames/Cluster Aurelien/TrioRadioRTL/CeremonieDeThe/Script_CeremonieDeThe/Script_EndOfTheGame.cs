@@ -96,11 +96,13 @@ namespace RadioRTL
             //3- TimedUpdate is called once every tick.
             public override void TimedUpdate()
             {
+                cupQuantity = teaCup.pouredTea;
 
                 if (cupQuantity >= waterToVictory)
                 {
 
                     princess.enabled = true;
+                    FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
 
                 }
 
@@ -109,7 +111,7 @@ namespace RadioRTL
                 //3.1- A la fin de la 8 tick
                 if (Tick == 8)
                 {
-                    Debug.LogError("end");
+                    Debug.Log("end");
 
                     cupQuantity = teaCup.pouredTea;
 
@@ -120,7 +122,7 @@ namespace RadioRTL
                 {
 
                     Manager.Instance.Result(true);
-                    Debug.LogError("victoire");
+                    print("victoire");
 
                     FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
 
@@ -129,7 +131,7 @@ namespace RadioRTL
                 {
 
                      Manager.Instance.Result(false);
-                     Debug.LogError("defaite");
+                     Debug.Log("defaite");
 
                      FindObjectOfType<Script_SoundManager>().Play("Defaite", 1);
                 }
