@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Testing;
 
-namespace TrioRadioRTL
+namespace RadioRTL
 {
     namespace EatingContest
     {
