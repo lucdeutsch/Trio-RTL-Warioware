@@ -71,6 +71,7 @@ namespace RadioRTL
             public GameObject tears;
             bool hasEnded;
             public bool isEating;
+            public int foodtype;
             // Start is called before the first frame update
             void Start()
             {
@@ -264,6 +265,11 @@ namespace RadioRTL
 
             IEnumerator EatAnim()
             {
+                foodtype += 1;
+                if (foodtype > 3)
+                {
+                    foodtype = foodtype - 3;
+                }
                 isEating = true;
                 yield return new WaitForSeconds(.2f);
                 isEating = false;
