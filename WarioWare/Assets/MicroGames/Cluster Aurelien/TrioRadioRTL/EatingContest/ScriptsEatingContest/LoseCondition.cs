@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Testing;
+using Caps;
 
 namespace RadioRTL
 {
@@ -29,7 +29,7 @@ namespace RadioRTL
             {
                 if (Tick == 8)
                 {
-                    Debug.Log("win = " + win);
+                    
                     if (win)
                     {
                         Manager.Instance.Result(true);
