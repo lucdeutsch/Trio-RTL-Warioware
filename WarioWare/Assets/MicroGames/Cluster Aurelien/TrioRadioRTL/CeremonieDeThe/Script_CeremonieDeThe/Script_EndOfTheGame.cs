@@ -25,7 +25,7 @@ namespace RadioRTL
             bool cupIsFull;
             int cupQuantity;
 			public int waterToVictory;
-            bool victoryMusicWasPlayed = false;
+            bool victoryMusicWasPlayed = true;
 
             //2- Récupération des donné
             public override void Start()
@@ -102,11 +102,14 @@ namespace RadioRTL
 
                 if (cupQuantity >= waterToVictory)
                 {
+                    if (victoryMusicWasPlayed == true)
+                    {
 
-                    FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
-                    victoryMusicWasPlayed = true;
-                    fireWorks.SetActive(true);
+                        FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
+                        victoryMusicWasPlayed = false;
+                        fireWorks.SetActive(true);
 
+                    }
                 }
 
                 //Debug.Log(Tick);
@@ -127,10 +130,14 @@ namespace RadioRTL
                         Manager.Instance.Result(true);
                         //print("victoire");
 
-                        FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
-                        victoryMusicWasPlayed = true;
-                        fireWorks.SetActive(true);
+                        if (victoryMusicWasPlayed == true)
+                        {
 
+                            FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
+                            victoryMusicWasPlayed = false;
+                            fireWorks.SetActive(true);
+
+                        }
                     }
                     else
                     {
@@ -143,16 +150,7 @@ namespace RadioRTL
                         fireWorks.SetActive(false);
 
                     }
-
-                    if (victoryMusicWasPlayed == true)
-                    {
-
-                        FindObjectOfType<Script_SoundManager>().Stop("Victoire");
-
-                    }
-
                 }
-
             }
         }
     }
