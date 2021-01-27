@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Caps;
+using Testing;
 
 namespace RadioRTL
 {
@@ -31,7 +31,7 @@ namespace RadioRTL
             public override void Start()
             {
 
-                victoryMusicWasPlayed = false;
+                victoryMusicWasPlayed = true;
 
                 base.Start(); //Do not erase this line!
 
@@ -64,21 +64,25 @@ namespace RadioRTL
                     case (60):
                         waterToVictory = 90;
                         FindObjectOfType<Script_SoundManager>().Play("Musique 60", 0);
+                        //print($"musique de {bpm} bpm");
                         break;
 
                     case (80):
                         waterToVictory = 81;
                         FindObjectOfType<Script_SoundManager>().Play("Musique 80", 0);
+                        //print($"musique de {bpm} bpm");
                         break;
 
                     case (100):
                         waterToVictory = 60;
                         FindObjectOfType<Script_SoundManager>().Play("Musique 100", 0);
+                        //print($"musique de {bpm} bpm");
                         break;
 
                     case (120):
                         waterToVictory = 42;
                         FindObjectOfType<Script_SoundManager>().Play("Musique 120", 0);
+                        //print($"musique de {bpm} bpm");
                         break;
 
                 }
@@ -108,6 +112,7 @@ namespace RadioRTL
                         FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
                         victoryMusicWasPlayed = false;
                         fireWorks.SetActive(true);
+                        print("Music vcitory was played");
 
                     }
                 }
@@ -136,6 +141,7 @@ namespace RadioRTL
                             FindObjectOfType<Script_SoundManager>().Play("Victoire", 1);
                             victoryMusicWasPlayed = false;
                             fireWorks.SetActive(true);
+                            print("Music vcitory was played");
 
                         }
                     }
